@@ -1,5 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from PIL import Image
 
 @api_view(['GET', 'POST'])
 def process(request):
@@ -13,4 +14,9 @@ def process(request):
 
     if request.method == 'GET':
         return Response({"message": "this is GET"})
+    
+    print(request.FILES['img'])
+    img = request.FILES['img']
+    im = Image.open(img)
+    im.show()
     return Response({"message": "this is POST"})
