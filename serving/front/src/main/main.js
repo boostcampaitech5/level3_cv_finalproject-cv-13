@@ -1,34 +1,24 @@
 import React, { useState } from "react";
 import * as s from "./main_css";
-import axios from 'axios';
+import NavThree from "./navThree"
+import SendImage from "process/sendImage";
 
 function main() {
-  const sendImage = async (e) => {
-    e.preventDefault();
-    console.log(e.target[0].files[0])
-
-    axios({
-      method: 'POST',
-      url: 'http://127.0.0.1:8000/images/process/' ,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      data: {'img': e.target[0].files[0]}
-    })
-    .then(res => {console.log(res)})
-    .catch(err => {console.log(err)})
+  const [state, setState] = useState("three")
+  const mainState = (state) => {
+    setState(state)
   }
+  console.log(state)
+  console.log(state == "three");
 
   return (
     <s.mainBackground>
-
-      <p>send image!</p>
-
-      <s.imageSendForm onSubmit={(e) => sendImage(e)}>
-        <s.imageSendBtn type="file" multiple="multiple" />
-        <s.sendSubmitBtn type="submit" />
-      </s.imageSendForm>
-
+      {
+        {
+          three : <NavThree propState={mainState} />,
+          main : <SendImage />
+        }[state]
+      } 
     </s.mainBackground>
   )
 }

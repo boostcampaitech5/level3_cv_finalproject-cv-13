@@ -9,5 +9,9 @@ export const colors = {
   WhiteWood: '#FFE5CC',
   WhiterWood: '#FCCFA5',
   DarkerWood: '#AA6F39',
-  DarkWood: '#7D4614'
+  DarkWood: '#7D4614',
+
+  Black: '#000000',
+  White: '#FFFFFF',
+  Pha: '#008000',
 }
