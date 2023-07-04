@@ -6,38 +6,13 @@ export const mainBackground = styled.div`
   left: 0;
   top: 0;
 
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 
-  background-color: ${colors.WhiteBlue}
-`
-
-export const imageSendForm = styled.form`
-  width: 5vw;
-  height: 5vh;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background-color: ${colors.Se};
-`
-
-export const imageSendBtn = styled.input`
-`
-
-export const sendSubmitBtn = styled.input`
-  width: 3vw;
-  height: 3vh;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: ${colors.MainBlue};
 `
