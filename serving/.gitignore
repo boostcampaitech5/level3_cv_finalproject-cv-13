@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,django,react,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,django,react,node
 
+
 ### Django ###
 *.log
 *.pot
@@ -432,4 +433,6 @@ sketch
 .history
 .ionide
 
+!front/.env
+!front/build
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,django,react,node
