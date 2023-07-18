@@ -16,7 +16,7 @@ def process(request):
         return Response({"message": "this is GET"})
     
     print(request.FILES['img'])
-    img = request.FILES['img']
-    im = Image.open(img)
-    im.show()
+    # img = request.FILES['img']
+    # im = Image.open(img)
+    # im.show()
     return Response({"message": "this is POST"})
