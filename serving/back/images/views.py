@@ -1,6 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+import requests
 from PIL import Image
+import base64
 
 @api_view(['GET', 'POST'])
 def process(request):
@@ -15,8 +17,21 @@ def process(request):
     if request.method == 'GET':
         return Response({"message": "this is GET"})
     
-    print(request.FILES['img'])
-    # img = request.FILES['img']
-    # im = Image.open(img)
-    # im.show()
+    img_file = Image.open(request.FILES['img'])
+    img_file.save('temp_img.png', 'png')
+
+    with open('temp_img.png', 'rb') as f: 
+        base64_img = base64.b64encode(f.read())
+    
+    # base64_img = repr(base64_img)
+
+    ai_url = 'http://118.67.131.164:40002/images/process/'
+    ai_img = {
+        'img' : base64_img
+    }
+
+    res = requests.post(ai_url, data=ai_img)
+
+    print(res)
+
     return Response({"message": "this is POST"})
