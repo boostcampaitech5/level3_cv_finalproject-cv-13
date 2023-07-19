@@ -11,6 +11,8 @@ def process(request):
     Returns:
         temp -> messages
     """
-    print(request)
-    print(request.data)
+
+    with open('temp_img.png', 'rb') as f:
+        f.write(request.data['img'])
+        
     return Response({"message": "this is POST"})
