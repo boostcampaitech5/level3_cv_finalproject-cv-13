@@ -11,5 +11,6 @@ def process(request):
     Returns:
         temp -> messages
     """
-
+    print(request)
+    print(request.data)
     return Response({"message": "this is POST"})
