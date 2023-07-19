@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../design/Design'
+import { colors } from '../../design/design'
 
 export const ExampleBackground = styled.div`
   position: absolute;

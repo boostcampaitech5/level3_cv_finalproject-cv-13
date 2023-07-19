@@ -16,8 +16,8 @@ export default function SendImage(props) {
 
     axios({
       method: 'POST',
-      url: 'http://34.64.255.206:8000/images/process/' ,
-      // url: 'http://127.0.0.1:8000/images/process/', 
+      // url: 'http://34.64.255.206:8000/images/process/' ,
+      url: 'http://127.0.0.1:8000/images/process/', 
       headers: {
         "Content-Type": "multipart/form-data",
       },

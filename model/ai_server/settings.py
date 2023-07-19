@@ -135,6 +135,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ORIGIN_WHITELIST = [
     "http://34.64.255.206:8000",
     "http://34.64.255.206",
+    'http://localhost:8000',
+    "http://127.0.0.1:8000",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.MemoryFileUploadHandler',
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+]
+
+
+MAX_UPLOAD_SIZE = 5242880
+DATA_UPLOAD_MAX_MEMORY_SIZE = None
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None

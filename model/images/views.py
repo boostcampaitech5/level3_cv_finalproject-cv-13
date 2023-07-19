@@ -1,6 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from PIL import Image
+import base64
 
 @api_view(['POST'])
 def process(request):
@@ -12,7 +13,7 @@ def process(request):
         temp -> messages
     """
 
-    with open('temp_img.png', 'rb') as f:
-        f.write(request.data['img'])
+    with open('temp_img.png', 'wb') as f:
+        f.write(base64.b64decode(request.data['img']))
         
     return Response({"message": "this is POST"})
