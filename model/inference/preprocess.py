@@ -7,11 +7,25 @@ import importlib
 from tqdm import tqdm
 from imageio import imread, imwrite
 import torch
+import open3d as o3d
+
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 from misc.pano_lsd_align import panoEdgeDetection, rotatePanorama
 from lib.config import config, update_config
+
+
+def get_uni_sphere_xyz(H, W):
+    j, i = np.meshgrid(np.arange(H), np.arange(W), indexing='ij')
+    u = (i+0.5) / W * 2 * np.pi
+    v = ((j+0.5) / H - 0.5) * np.pi
+    z = -np.sin(v)
+    c = np.cos(v)
+    y = c * np.sin(u)
+    x = c * np.cos(u)
+    sphere_xyz = np.stack([x, y, z], -1)
+    return sphere_xyz
 
 
 path = "./data/hanuryhouse.jpg"
@@ -89,4 +103,37 @@ with torch.no_grad():
     fname = os.path.splitext(os.path.split(path)[1])[0]
     pred_depth = pred_depth.mul(1000).squeeze().cpu().numpy().astype(np.uint16)
     imwrite(os.path.join(output_dir,"depth", f'{fname}.depth.png'),pred_depth)
+    
+################################### depth map to PCD ##########################################
 
+scale = 0.001
+crop_ratio = 80/512
+crop_z_above = 1.2
+depth = pred_depth[...,None].astype(np.float32) * scale
+
+# Project to 3d
+H, W = i_img.shape[:2]
+xyz = depth * get_uni_sphere_xyz(H, W)
+xyzrgb = np.concatenate([xyz, i_img/255.], 2)
+
+# Crop the image and flatten
+if crop_ratio > 0:
+    assert crop_ratio < 1
+    crop = int(H * crop_ratio)
+    xyzrgb = xyzrgb[crop:-crop]
+xyzrgb = xyzrgb.reshape(-1, 6)
+
+# Crop in 3d
+# xyzrgb = xyzrgb[xyzrgb[:,2] <= crop_z_above]
+
+# Visualize
+pcd = o3d.geometry.PointCloud()
+pcd.points = o3d.utility.Vector3dVector(xyzrgb[:, :3])
+pcd.colors = o3d.utility.Vector3dVector(xyzrgb[:, 3:])
+
+o3d.io.write_point_cloud(os.path.join(output_dir,"pcd", f'{fname}.pcd'),pcd)
+
+# o3d.visualization.draw_geometries([
+#     pcd,
+#     o3d.geometry.TriangleMesh.create_coordinate_frame(size=0.3, origin=[0, 0, 0])
+# ])
