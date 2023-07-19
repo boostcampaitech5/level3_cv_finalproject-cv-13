@@ -80,8 +80,7 @@ export default function SendImage(props) {
       </s.imageCheckDiv>
     }
 
-      {/* <s.imageSelectForm onSubmit={(e) => sendImage(e)} margin={margin}> */}
-      <s.imageSelectForm>
+      <s.imageSelectForm onSubmit={(e) => sendImage(e)} margin={margin}>
 
         <s.imageSelectLabel for="sendBtn" select={select}>
           HERE
