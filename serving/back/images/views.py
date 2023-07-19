@@ -23,7 +23,7 @@ def process(request):
         'img' : request.FILES['img']
     }
 
-    res = request.post(ai_url, data=ai_img)
+    res = requests.post(ai_url, data=ai_img)
 
     print(res)
 
