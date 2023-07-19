@@ -15,5 +15,5 @@ def process(request):
 
     with open('temp_img.png', 'wb') as f:
         f.write(base64.b64decode(request.data['img']))
-        
+
     return Response({"message": "this is POST"})
