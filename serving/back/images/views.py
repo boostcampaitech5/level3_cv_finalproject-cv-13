@@ -18,9 +18,9 @@ def process(request):
         return Response({"message": "this is GET"})
     
     img_file = Image.open(request.FILES['img'])
-    img_file.save('./temp_img.png', 'png')
+    img_file.save('temp_img.png', 'png')
 
-    with open('temp_img.jpg', 'rb') as f: 
+    with open('temp_img.png', 'rb') as f: 
         base64_img = base64.b64encode(f.read())
     
     # base64_img = repr(base64_img)
