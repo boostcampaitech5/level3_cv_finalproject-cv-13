@@ -17,11 +17,15 @@ def process(request):
     if request.method == 'GET':
         return Response({"message": "this is GET"})
     
-    print(request.FILES['img'])
+    img_file = request.FILES['img']
     
-    with open(request.FILES['img'], 'rb') as f: 
+    print(img_file)
+    
+    with open(img_file, 'rb') as f: 
         base64_img = base64.b64encode(f.read())
+
     print(base64_img)
+
     ai_url = 'http://118.67.131.164:40002/images/process/'
     ai_img = {
         'img' : base64_img
