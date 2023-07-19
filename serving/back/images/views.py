@@ -20,10 +20,12 @@ def process(request):
     img_file = request.FILES['img']
     
     print(img_file)
-    
+
     with open(img_file, 'rb') as f: 
         base64_img = base64.b64encode(f.read())
-
+    
+    base64_img = repr(base64_img)
+    
     print(base64_img)
 
     ai_url = 'http://118.67.131.164:40002/images/process/'
