@@ -25,8 +25,6 @@ def process(request):
     
     # base64_img = repr(base64_img)
 
-    print(base64_img)
-
     ai_url = 'http://118.67.131.164:40002/images/process/'
     ai_img = {
         'img' : base64_img
