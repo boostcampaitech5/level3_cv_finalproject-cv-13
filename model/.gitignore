@@ -25,6 +25,8 @@ media
 *.so
 
 # Distribution / packaging
+.venv
+venv
 .Python
 build/
 develop-eggs/
@@ -435,4 +437,7 @@ sketch
 
 !front/.env
 !front/build
+!inference/checkpoints
+!inference/lib
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,django,react,node

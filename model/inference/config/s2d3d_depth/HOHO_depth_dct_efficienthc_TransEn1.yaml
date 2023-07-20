@@ -27,7 +27,7 @@ training:
     optim_betas: (0.9, 0.999)
 
 model:
-    file: lib.model.hohonet
+    file: inference.lib.model.hohonet
     modelclass: HoHoNet
     kwargs:
         emb_dim: 256
