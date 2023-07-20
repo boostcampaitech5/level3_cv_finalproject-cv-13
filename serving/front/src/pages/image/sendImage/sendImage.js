@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import * as s from "./sendImage_css";
 import axios from 'axios';
+import ShowPcd from '../ShowPcd'
 
 export default function SendImage(props) {
   const [file, setFile] = useState('')
   const [image, setImage] = useState('')
   const [select, setSelect] = useState('flex')
-  const [send, setSend] = useState('none')
+  const [send, setSend] = useState(false)
+  const [pcd, setPcd] = useState(false)
   // const [margin, setMargin] = useState(0)
 
   const ImageProcess = async (e) => {
@@ -40,7 +42,10 @@ export default function SendImage(props) {
       // url: 'http://34.64.255.206:8000/images/send/depth/',
       url: 'http://127.0.0.1:8000/images/send/depth/', 
     })
-    .then(res => {console.log(res)})
+    .then(res => {
+      console.log(res)
+      setDepth(true)
+    })
     .catch(err => {console.log(err)})
   }
 
@@ -50,7 +55,10 @@ export default function SendImage(props) {
       // url: 'http://34.64.255.206:8000/images/send/pcd/',
       url: 'http://127.0.0.1:8000/images/send/pcd/', 
     })
-    .then(res => {console.log(res)})
+    .then(res => {
+      console.log(res)
+      setPcd(true)
+    })
     .catch(err => {console.log(err)})
   }
 
@@ -121,6 +129,11 @@ export default function SendImage(props) {
         
       </s.imageSelectForm>
 
+      { pcd === false
+        ? null
+        : <ShowPcd />
+      }
     </s.sendImageBackground>
+
   )
 }
