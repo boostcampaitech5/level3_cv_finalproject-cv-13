@@ -50,19 +50,19 @@ def result(request):
         temp -> messages
     """
 
-    with open('temp_depth.png', 'wb') as f:
+    with open('temp_img/temp_depth.png', 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
     
-    with open('temp_pcd.pcd', 'wb') as f:
+    with open('temp_img/temp_pcd.pcd', 'wb') as f:
         f.write(base64.b64decode(request.data['pcd']))
-    
+
     return HttpResponse(status=200)
 
 @api_view(['GET'])
 def send_depth(request):
-    response = FileResponse(open("temp_depth.png", "rb"))
-    return response
+    # response = FileResponse(open("temp_depth.png", "rb"))
+    return HttpResponse(status=200)
 
 def send_pcd(reqeust):
-    response = FileResponse(open("temp_pcd.pcd", "rb"))
-    return response
+    # response = FileResponse(open("temp_pcd.pcd", "rb"))
+    return HttpResponse(status=200)
