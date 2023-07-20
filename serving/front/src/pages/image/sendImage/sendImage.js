@@ -14,6 +14,7 @@ export default function SendImage(props) {
     console.log(e);
     console.log(e.target[0].files[0])
 
+    
     axios({
       method: 'POST',
       url: 'http://34.64.255.206:8000/images/process/' ,
