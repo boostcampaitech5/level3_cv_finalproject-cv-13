@@ -2,6 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from PIL import Image
 import base64
+from inference import preprocess
 
 @api_view(['POST'])
 def process(request):
@@ -13,7 +14,15 @@ def process(request):
         temp -> messages
     """
 
-    with open('temp_img.png', 'wb') as f:
+    with open('./inference/data/temp_img.png', 'wb') as f:
         f.write(base64.b64decode(request.data['img']))
+
+    preprocess.run_main()
+
+    im_aligned = Image.open('./inference/result/aligned/temp_img.png')
+    im_depth = Image.open('./inference/result/depth/temp_img.depth.png')
+    
+    im_aligned.show()
+    im_depth.show()
 
     return Response({"message": "this is POST"})
