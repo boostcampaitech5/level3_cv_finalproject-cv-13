@@ -1,8 +1,10 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.http import HttpResponse
 import requests
 from PIL import Image
 import base64
+from django.http import FileResponse
 
 @api_view(['GET', 'POST'])
 def process(request):
@@ -36,4 +38,31 @@ def process(request):
 
     print(res)
 
-    return Response({"message": "this is POST"})
+    return HttpResponse(status=200)
+
+@api_view(['POST'])
+def result(request):
+    """Get Images from ai backend
+
+    Args:
+        request: request from ai backend
+    Returns:
+        temp -> messages
+    """
+
+    with open('temp_depth.png', 'wb') as f:
+        f.write(base64.b64decode(request.data['depth']))
+    
+    with open('temp_pcd.pcd', 'wb') as f:
+        f.write(base64.b64decode(request.data['pcd']))
+    
+    return HttpResponse(status=200)
+
+@api_view(['GET'])
+def send_depth(request):
+    response = FileResponse(open("temp_depth.png", "rb"))
+    return response
+
+def send_pcd(reqeust):
+    response = FileResponse(open("temp_pcd.pcd", "rb"))
+    return response
