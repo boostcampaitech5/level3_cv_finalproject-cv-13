@@ -437,4 +437,7 @@ sketch
 
 !front/.env
 !front/build
+!inference/checkoints
+!inference/lib
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,django,react,node
