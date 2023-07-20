@@ -25,7 +25,8 @@ media
 *.so
 
 # Distribution / packaging
-venv/
+.venv
+venv
 .Python
 build/
 develop-eggs/
