@@ -19,10 +19,4 @@ def process(request):
 
     preprocess.run_main()
 
-    im_aligned = Image.open('./inference/result/aligned/temp_img.png')
-    im_depth = Image.open('./inference/result/depth/temp_img.depth.png')
-    
-    im_aligned.show()
-    im_depth.show()
-
     return Response({"message": "this is POST"})
