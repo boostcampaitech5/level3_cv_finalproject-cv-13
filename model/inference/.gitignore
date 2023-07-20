@@ -2,5 +2,5 @@
 
 !front/.env
 !front/build
-!inference/checkpoints/*.pth
+!inference/checkpoints
 !inference/lib
