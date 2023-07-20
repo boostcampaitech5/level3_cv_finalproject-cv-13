@@ -1,1 +1,6 @@
 *.pth
+
+!front/.env
+!front/build
+!inference/checkpoints
+!inference/lib

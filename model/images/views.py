@@ -1,7 +1,10 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.http import HttpResponse
 from PIL import Image
 import base64
+from inference import preprocess
+import requests
 
 @api_view(['POST'])
 def process(request):
@@ -13,7 +16,26 @@ def process(request):
         temp -> messages
     """
 
-    with open('temp_img.png', 'wb') as f:
+    with open('./inference/data/temp_img.png', 'wb') as f:
         f.write(base64.b64decode(request.data['img']))
-        
-    return Response({"message": "this is POST"})
+
+    preprocess.run_main()
+
+    with open('./inference/result/depth/temp_img.depth.png', 'rb') as f:
+        base64_depth = base64.b64encode(f.read())
+    
+    with open('./inference/result/pcd/temp_img.pcd', 'rb') as f:
+        base64_pcd = base64.b64encode(f.read())
+
+    # central_url: 'http://34.64.255.206:8000/images/result/' ,
+    central_url = 'http://127.0.0.1:8000/images/result/'
+    
+    data = {
+        'depth': base64_depth,
+        'pcd': base64_pcd
+    }
+
+    res = requests.post(central_url, data=data)
+    print(res)
+
+    return HttpResponse(status=200)

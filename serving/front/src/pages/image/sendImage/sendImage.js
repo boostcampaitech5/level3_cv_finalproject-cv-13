@@ -9,12 +9,19 @@ export default function SendImage(props) {
   const [send, setSend] = useState('none')
   // const [margin, setMargin] = useState(0)
 
+  const ImageProcess = async (e) => {
+    e.preventDefault();
+    const send = await sendImage(e)
+    const loadD = await loadDepth()
+    const loadP = await loadPcd()
+  }
   const sendImage = async (e) => {
     e.preventDefault();
     console.log(e);
     console.log(e.target[0].files[0])
 
-    axios({
+    
+    const send = await axios({
       method: 'POST',
       // url: 'http://34.64.255.206:8000/images/process/' ,
       url: 'http://127.0.0.1:8000/images/process/', 
@@ -22,6 +29,26 @@ export default function SendImage(props) {
         "Content-Type": "multipart/form-data",
       },
       data: {'img': e.target[0].files[0]}
+    })
+    .then(res => {console.log(res)})
+    .catch(err => {console.log(err)})
+  }
+
+  const loadDepth = async () => {
+    const loadD = await axios({
+      method: 'GET',
+      // url: 'http://34.64.255.206:8000/images/send/depth/',
+      url: 'http://127.0.0.1:8000/images/send/depth/', 
+    })
+    .then(res => {console.log(res)})
+    .catch(err => {console.log(err)})
+  }
+
+  const loadPcd = async () => {
+    const loadP = await axios({
+      method: 'GET',
+      // url: 'http://34.64.255.206:8000/images/send/pcd/',
+      url: 'http://127.0.0.1:8000/images/send/pcd/', 
     })
     .then(res => {console.log(res)})
     .catch(err => {console.log(err)})
@@ -80,7 +107,7 @@ export default function SendImage(props) {
       </s.imageCheckDiv>
     }
 
-      <s.imageSelectForm onSubmit={(e) => sendImage(e)}>
+      <s.imageSelectForm onSubmit={(e) => ImageProcess(e)}>
 
         <s.imageSelectLabel for="sendBtn" select={select}>
           HERE
