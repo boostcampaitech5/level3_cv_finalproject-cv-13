@@ -8,6 +8,7 @@ export default function SendImage(props) {
   const [image, setImage] = useState('')
   const [select, setSelect] = useState('flex')
   const [send, setSend] = useState(false)
+  const [depth, setDepth] = useState(false)
   const [pcd, setPcd] = useState(false)
   // const [margin, setMargin] = useState(0)
 
@@ -25,8 +26,8 @@ export default function SendImage(props) {
     
     const send = await axios({
       method: 'POST',
-      // url: 'http://34.64.255.206:8000/images/process/' ,
-      url: 'http://127.0.0.1:8000/images/process/', 
+      url: 'http://34.64.255.206:8000/images/process/' ,
+      // url: 'http://127.0.0.1:8000/images/process/', 
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -39,8 +40,8 @@ export default function SendImage(props) {
   const loadDepth = async () => {
     const loadD = await axios({
       method: 'GET',
-      // url: 'http://34.64.255.206:8000/images/send/depth/',
-      url: 'http://127.0.0.1:8000/images/send/depth/', 
+      url: 'http://34.64.255.206:8000/images/send/depth/',
+      // url: 'http://127.0.0.1:8000/images/send/depth/', 
     })
     .then(res => {
       console.log(res)
@@ -52,8 +53,8 @@ export default function SendImage(props) {
   const loadPcd = async () => {
     const loadP = await axios({
       method: 'GET',
-      // url: 'http://34.64.255.206:8000/images/send/pcd/',
-      url: 'http://127.0.0.1:8000/images/send/pcd/', 
+      url: 'http://34.64.255.206:8000/images/send/pcd/',
+      // url: 'http://127.0.0.1:8000/images/send/pcd/', 
     })
     .then(res => {
       console.log(res)
