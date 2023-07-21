@@ -27,8 +27,8 @@ def process(request):
     
     # base64_img = repr(base64_img)
 
-    ai_url = 'http://118.67.131.164:40002/images/process/'
-    # ai_url = 'http://127.0.0.1:40002/images/process/'
+    # ai_url = 'http://118.67.131.164:40002/images/process/'
+    ai_url = 'http://127.0.0.1:40002/images/process/'
 
     ai_img = {
         'img' : base64_img
@@ -50,10 +50,10 @@ def result(request):
         temp -> messages
     """
 
-    with open('./img_dir/temp_depth.png', 'wb') as f:
+    with open('temp_img/temp_depth.png', 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
     
-    with open('./img_dir/temp_pcd.pcd', 'wb') as f:
+    with open('temp_img/temp_pcd.pcd', 'wb') as f:
         f.write(base64.b64decode(request.data['pcd']))
 
     return HttpResponse(status=200)
