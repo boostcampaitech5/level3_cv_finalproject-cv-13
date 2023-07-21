@@ -10,7 +10,7 @@ import random
 @api_view(['GET', 'POST'])
 def process(request):
     seed = random.randint(0, 1e10)
-    temp_img_path = f'{seed}/temp_img.png'
+    temp_img_path = f'temp_img_{seed}.png'
 
     """Get and Send Images between front and back
 
@@ -36,7 +36,6 @@ def process(request):
 
     ai_img = {
         'img' : base64_img,
-        'seed' : seed,
     }
     front_res = {
         'seed': seed
@@ -58,8 +57,8 @@ def result(request):
     """
     seed = request.data[seed]
 
-    temp_depth_path = f'temp_img/{seed}/temp_depth.png'
-    temp_pcd_path = f'temp_img/{seed}/temp_pcd.pcd'
+    temp_depth_path = f'temp_img/temp_depth_{seed}.png'
+    temp_pcd_path = f'temp_img/temp_pcd_{seed}.pcd'
 
     with open(temp_depth_path, 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
