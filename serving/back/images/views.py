@@ -59,8 +59,8 @@ def result(request):
     """
     seed = request.data[seed]
 
-    temp_depth_path = f'temp_img/temp_depth_{seed}.png'
-    temp_pcd_path = f'temp_img/temp_pcd_{seed}.pcd'
+    temp_depth_path = f'img_dir/temp_depth_{seed}.png'
+    temp_pcd_path = f'img_dir/temp_pcd_{seed}.pcd'
 
     with open(temp_depth_path, 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
