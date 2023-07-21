@@ -36,6 +36,7 @@ def process(request):
 
     ai_img = {
         'img' : base64_img,
+        'seed' : seed,
     }
     front_res = {
         'seed': seed
