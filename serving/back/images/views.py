@@ -5,9 +5,13 @@ import requests
 from PIL import Image
 import base64
 from django.http import FileResponse
+import random
 
 @api_view(['GET', 'POST'])
 def process(request):
+    seed = random.randint(0, 1e10)
+    temp_img_path = f'{seed}/temp_img.png'
+
     """Get and Send Images between front and back
 
     Args:
@@ -20,9 +24,9 @@ def process(request):
         return Response({"message": "this is GET"})
     
     img_file = Image.open(request.FILES['img'])
-    img_file.save('temp_img.png', 'png')
+    img_file.save(temp_img_path, 'png')
 
-    with open('temp_img.png', 'rb') as f: 
+    with open(temp_img_path, 'rb') as f: 
         base64_img = base64.b64encode(f.read())
     
     # base64_img = repr(base64_img)
@@ -31,14 +35,17 @@ def process(request):
     ai_url = 'http://127.0.0.1:40002/images/process/'
 
     ai_img = {
-        'img' : base64_img
+        'img' : base64_img,
+        'seed' : seed,
     }
-
+    front_res = {
+        'seed': seed
+    }
     res = requests.post(ai_url, data=ai_img)
 
     print(res)
 
-    return HttpResponse(status=200)
+    return Response(front_res)
 
 @api_view(['POST'])
 def result(request):
@@ -49,11 +56,15 @@ def result(request):
     Returns:
         temp -> messages
     """
+    seed = request.data[seed]
 
-    with open('temp_img/temp_depth.png', 'wb') as f:
+    temp_depth_path = f'temp_img/{seed}/temp_depth.png'
+    temp_pcd_path = f'temp_img/{seed}/temp_pcd.pcd'
+
+    with open(temp_depth_path, 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
     
-    with open('temp_img/temp_pcd.pcd', 'wb') as f:
+    with open(temp_pcd_path, 'wb') as f:
         f.write(base64.b64decode(request.data['pcd']))
 
     return HttpResponse(status=200)
