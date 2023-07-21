@@ -4,7 +4,7 @@ import { PCDLoader } from 'three-stdlib'
 import * as s from "./ShowPcd_css";
 
 function Points() {
-  const points = useLoader(PCDLoader, './img_dir/temp_pcd.pcd')
+  const points = useLoader(PCDLoader, 'temp_pcd.pcd')
   return <primitive object={points} {...props} />
 }
 
