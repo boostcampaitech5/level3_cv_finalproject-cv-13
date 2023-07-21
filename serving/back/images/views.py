@@ -64,9 +64,11 @@ def result(request):
 
     with open(temp_depth_path, 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
-    
+        print(f'create file at {temp_depth_path}')
+
     with open(temp_pcd_path, 'wb') as f:
         f.write(base64.b64decode(request.data['pcd']))
+        print(f'create file at {temp_pcd_path}')
 
     return HttpResponse(status=200)
 
