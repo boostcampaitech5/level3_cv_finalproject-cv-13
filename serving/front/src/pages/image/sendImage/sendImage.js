@@ -7,7 +7,7 @@ export default function SendImage(props) {
   const [file, setFile] = useState('')
   const [image, setImage] = useState('')
   const [select, setSelect] = useState('flex')
-  const [send, setSend] = useState(false)
+  const [send, setSend] = useState('none')
   const [depth, setDepth] = useState(false)
   const [pcd, setPcd] = useState(false)
   // const [margin, setMargin] = useState(0)
