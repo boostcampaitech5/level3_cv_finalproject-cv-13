@@ -50,10 +50,10 @@ def result(request):
         temp -> messages
     """
 
-    with open('temp_img/temp_depth.png', 'wb') as f:
+    with open('img_dir/temp_depth.png', 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
     
-    with open('temp_img/temp_pcd.pcd', 'wb') as f:
+    with open('img_dir/temp_pcd.pcd', 'wb') as f:
         f.write(base64.b64decode(request.data['pcd']))
 
     return HttpResponse(status=200)
