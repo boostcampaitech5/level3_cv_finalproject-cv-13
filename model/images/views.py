@@ -16,15 +16,17 @@ def process(request):
         temp -> messages
     """
 
-    with open('./inference/data/temp_img.png', 'wb') as f:
+    seed = request.data['seed']
+    print(seed)
+    with open(f'./inference/data/temp_img_{seed}.png', 'wb') as f:
         f.write(base64.b64decode(request.data['img']))
 
-    preprocess.run_main()
+    preprocess.run_main(seed)
 
-    with open('./inference/result/depth/temp_img.depth.png', 'rb') as f:
+    with open(f'./inference/result/depth/temp_img_{seed}.depth.png', 'rb') as f:
         base64_depth = base64.b64encode(f.read())
     
-    with open('./inference/result/pcd/temp_img.pcd', 'rb') as f:
+    with open(f'./inference/result/pcd/temp_img_{seed}.pcd', 'rb') as f:
         base64_pcd = base64.b64encode(f.read())
 
     # central_url = 'http://34.64.255.206:8000/images/result/'
@@ -32,7 +34,8 @@ def process(request):
     
     data = {
         'depth': base64_depth,
-        'pcd': base64_pcd
+        'pcd': base64_pcd,
+        'seed': seed,
     }
 
     res = requests.post(central_url, data=data)

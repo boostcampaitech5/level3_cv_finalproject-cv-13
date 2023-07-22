@@ -27,8 +27,8 @@ def get_uni_sphere_xyz(H, W):
     sphere_xyz = np.stack([x, y, z], -1)
     return sphere_xyz
 
-def run_main():
-    path = "./inference/data/temp_img.png"
+def run_main(seed):
+    path = f"./inference/data/temp_img_{seed}.png"
     output_dir = "./inference/result"
     q_error = 0.7
     refine_iter = 3
