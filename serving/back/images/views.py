@@ -56,6 +56,8 @@ def result(request):
     """
     seed = request.data['seed']
 
+    print(request)
+    
     temp_depth_path = f'img_dir/temp_depth_{seed}.png'
     temp_pcd_path = f'img_dir/temp_pcd_{seed}.pcd'
 
