@@ -16,7 +16,7 @@ def process(request):
         temp -> messages
     """
 
-    seed = request.data[seed]
+    seed = request.data['seed']
     print(seed)
     with open(f'./inference/data/temp_img_{seed}.png', 'wb') as f:
         f.write(base64.b64decode(request.data['img']))
