@@ -41,9 +41,17 @@ export const AboutItemText = styled.p`
   margin: 0;
 
   font-family: 'WorkSans';
-  color: ${colors.Nav};
+  color: ${props => 
+    props.color === true && colors.Nav ||
+    props.color === false && colors.UnUseNav};
   font-size: min(5vh, 2.5vw);
   cursor: default;
+  transition: all 0.5s;
+
+  &:hover {
+    color: ${props =>
+    props.color === false && colors.Nav}
+  }
 `
 
 export const AboutContextDiv =styled.div`
