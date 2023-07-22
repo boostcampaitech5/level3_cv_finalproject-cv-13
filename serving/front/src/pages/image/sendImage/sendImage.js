@@ -134,10 +134,10 @@ export default function SendImage(props) {
         
       </s.imageSelectForm>
 
-      {/* { pcd === false
+      { pcd === false
         ? null
         : <ShowPcd seed={seed} />
-      } */}
+      }
     </s.sendImageBackground>
 
   )
