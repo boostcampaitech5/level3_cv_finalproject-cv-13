@@ -4,16 +4,16 @@ import { PCDLoader } from 'three-stdlib'
 import * as s from "./ShowPcd_css";
 
 function Points(props) {
-  const points = useLoader(PCDLoader, 'img_dir/temp_pcd.pcd')
+  const points = useLoader(PCDLoader, `img_dir/temp_pcd_${props.seed}.pcd`)
   return <primitive object={points} {...props} />
 }
 
-export default function ShowPcd() {
+export default function ShowPcd(props) {
   return (
     <s.ShowPcdBackground>
       <Canvas
       camera={{ position: [3, 2, 0]}}>
-        <Points rotation={[Math.PI/2, Math.PI, Math.PI/2]} material-size={0.001} material-color="white" />
+        <Points seed={props.seed} rotation={[Math.PI/2, Math.PI, Math.PI/2]} material-size={0.001} material-color="white" />
         <OrbitControls autoRotate={true}/>
       </Canvas>
     </s.ShowPcdBackground>
