@@ -54,7 +54,7 @@ def result(request):
     Returns:
         temp -> messages
     """
-    seed = request.data[seed]
+    seed = request.data['seed']
 
     temp_depth_path = f'img_dir/temp_depth_{seed}.png'
     temp_pcd_path = f'img_dir/temp_pcd_{seed}.pcd'
