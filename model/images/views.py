@@ -27,8 +27,8 @@ def process(request):
     with open('./inference/result/pcd/temp_img.pcd', 'rb') as f:
         base64_pcd = base64.b64encode(f.read())
 
-    central_url = 'http://34.64.255.206:8000/images/result/'
-    # central_url = 'http://127.0.0.1:8000/images/result/'
+    # central_url = 'http://34.64.255.206:8000/images/result/'
+    central_url = 'http://127.0.0.1:8000/images/result/'
     
     data = {
         'depth': base64_depth,
