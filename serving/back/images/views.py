@@ -7,7 +7,7 @@ import base64
 from django.http import FileResponse
 import random
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 def process(request):
     seed = random.randint(0, 1e10)
     temp_img_path = f'temp_imgs/temp_img_{seed}.png'
@@ -20,9 +20,6 @@ def process(request):
     Returns:
         temp -> messages
     """
-
-    if request.method == 'GET':
-        return Response({"message": "this is GET"})
     
     img_file = Image.open(request.FILES['img'])
     img_file.save(temp_img_path, 'png')
