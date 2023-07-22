@@ -36,7 +36,7 @@ export default function Image() {
         loading:
         <LoadPage />,
         pcd:
-        <ShowPcd />
+        <ShowPcd seed={seed}/>
       }[state]
     }
     
