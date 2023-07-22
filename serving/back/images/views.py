@@ -10,7 +10,7 @@ import random
 @api_view(['GET', 'POST'])
 def process(request):
     seed = random.randint(0, 1e10)
-    temp_img_path = f'temp_img_{seed}.png'
+    temp_img_path = f'temp_imgs/temp_img_{seed}.png'
     print(f'seed: {seed}, path: {temp_img_path}')
 
     """Get and Send Images between front and back
