@@ -10,7 +10,7 @@ export default function SendImage(props) {
   const [send, setSend] = useState('none')
   const [depth, setDepth] = useState(false)
   const [pcd, setPcd] = useState(false)
-  const [seed, setSeed] = useState(-1)
+  // const [seed, setSeed] = useState(-1)
   // const [margin, setMargin] = useState(0)
 
   const ImageProcess = async (e) => {
@@ -37,7 +37,8 @@ export default function SendImage(props) {
     })
     .then(res => {
       console.log(res)
-      setSeed(res.data.seed)
+      // setSeed(res.data.seed)
+      props.makeSeed(res.data.seed)
       props.controlState('pcd')
     })
     .catch(err => {

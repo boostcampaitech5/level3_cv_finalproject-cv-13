@@ -7,9 +7,14 @@ import ShowPcd from './showPcd/ShowPcd'
 export default function Image() {
   const [scroll, setScroll] = useState('hidden')
   const [state, setState] = useState('default')
+  const [seed, setSeed] = useState(-1)
 
   const makeScroll = () => {
     setScroll('scroll')
+  }
+
+  const makeSeed = (e) => {
+    setSeed(e)
   }
 
   const controlState = (e) => {
@@ -22,7 +27,12 @@ export default function Image() {
     {
       {
         default: 
-        <SendImage setScroll={makeScroll} scroll={scroll} controlState={controlState}/>,
+        <SendImage 
+        setScroll={makeScroll} 
+        scroll={scroll} 
+        controlState={controlState}
+        makeSeed={makeSeed}
+        />,
         loading:
         <LoadPage />,
         pcd:
