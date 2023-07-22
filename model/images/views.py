@@ -35,6 +35,7 @@ def process(request):
     data = {
         'depth': base64_depth,
         'pcd': base64_pcd,
+        'seed': seed,
     }
 
     res = requests.post(central_url, data=data)
