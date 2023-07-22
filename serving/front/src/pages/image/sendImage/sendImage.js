@@ -8,17 +8,17 @@ export default function SendImage(props) {
   const [image, setImage] = useState('')
   const [select, setSelect] = useState('flex')
   const [send, setSend] = useState('none')
-  // const [depth, setDepth] = useState(false)
-  // const [pcd, setPcd] = useState(false)
-  // const [seed, setSeed] = useState(-1)
+  const [depth, setDepth] = useState(false)
+  const [pcd, setPcd] = useState(false)
+  const [seed, setSeed] = useState(-1)
   // const [margin, setMargin] = useState(0)
 
   const ImageProcess = async (e) => {
     props.controlState('loading')
     e.preventDefault();
     const send = await sendImage(e)
-    // const loadD = await loadDepth()
-    // const loadP = await loadPcd()
+    const loadD = await loadDepth()
+    const loadP = await loadPcd()
   }
   const sendImage = async (e) => {
     e.preventDefault();
@@ -28,8 +28,8 @@ export default function SendImage(props) {
     
     const send = await axios({
       method: 'POST',
-      // url: 'http://34.64.255.206:8000/images/process/' ,
-      url: 'http://127.0.0.1:8000/images/process/', 
+      url: 'http://34.64.255.206:8000/images/process/' ,
+      // url: 'http://127.0.0.1:8000/images/process/', 
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -38,38 +38,38 @@ export default function SendImage(props) {
     .then(res => {
       console.log(res)
       setSeed(res.data.seed)
+      props.controlState('pcd')
     })
     .catch(err => {
       console.log(err)
-      props.controlState('pcd')
     })
   }
 
-  // const loadDepth = async () => {
-  //   const loadD = await axios({
-  //     method: 'GET',
-  //     // url: 'http://34.64.255.206:8000/images/send/depth/',
-  //     url: 'http://127.0.0.1:8000/images/send/depth/', 
-  //   })
-  //   .then(res => {
-  //     console.log(res)
-  //     setDepth(true)
-  //   })
-  //   .catch(err => {console.log(err)})
-  // }
+  const loadDepth = async () => {
+    const loadD = await axios({
+      method: 'GET',
+      // url: 'http://34.64.255.206:8000/images/send/depth/',
+      url: 'http://127.0.0.1:8000/images/send/depth/', 
+    })
+    .then(res => {
+      console.log(res)
+      setDepth(true)
+    })
+    .catch(err => {console.log(err)})
+  }
 
-  // const loadPcd = async () => {
-  //   const loadP = await axios({
-  //     method: 'GET',
-  //     // url: 'http://34.64.255.206:8000/images/send/pcd/',
-  //     url: 'http://127.0.0.1:8000/images/send/pcd/', 
-  //   })
-  //   .then(res => {
-  //     console.log(res)
-  //     setPcd(true)
-  //   })
-  //   .catch(err => {console.log(err)})
-  // }
+  const loadPcd = async () => {
+    const loadP = await axios({
+      method: 'GET',
+      // url: 'http://34.64.255.206:8000/images/send/pcd/',
+      url: 'http://127.0.0.1:8000/images/send/pcd/', 
+    })
+    .then(res => {
+      console.log(res)
+      setPcd(true)
+    })
+    .catch(err => {console.log(err)})
+  }
 
   const setImageFile = (e) => {
     const imageFile = e.target.files[0]
