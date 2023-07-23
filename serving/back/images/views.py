@@ -6,6 +6,7 @@ from PIL import Image
 import base64
 from django.http import FileResponse
 import random
+import os
 
 @api_view(['POST'])
 def process(request):
@@ -58,16 +59,16 @@ def result(request):
 
     print(request)
     
-    temp_depth_path = f'img_dir/temp_depth_{seed}.png'
-    temp_pcd_path = f'img_dir/temp_pcd_{seed}.pcd'
+    temp_depth_name = f'temp_depth_{seed}.png'
+    temp_pcd_name = f'temp_pcd_{seed}.pcd'
 
-    with open(temp_depth_path, 'wb') as f:
+    with open(os.path.join('img_dir', temp_depth_name), 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
-        print(f'create file at {temp_depth_path}')
+        print(f'create file {temp_depth_name}')
 
-    with open(temp_pcd_path, 'wb') as f:
+    with open(os.path.join('img_dir', temp_pcd_name), 'wb') as f:
         f.write(base64.b64decode(request.data['pcd']))
-        print(f'create file at {temp_pcd_path}')
+        print(f'create file at {temp_pcd_name}')
 
     return HttpResponse(status=200)
 
