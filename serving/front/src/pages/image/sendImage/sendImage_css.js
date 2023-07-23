@@ -39,10 +39,9 @@ export const imageSelectForm = styled.form`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  margin-right: min(0.5vw, 0.5vh);
   /* margin-right: ${(props) => props.margin}; */
 `
 
@@ -59,8 +58,7 @@ export const imageSelectLabel = styled.label`
   align-items: center;
   
   display: ${(props) => props.select};
-  font-family: 'WorkSans';
-  font-size: min(20vh, 10vw);
+
   color: white;
   background-color: ${colors.Nav};
   transition: all 0.5s;
@@ -68,15 +66,22 @@ export const imageSelectLabel = styled.label`
   &:hover{
     background-color: ${colors.Background};
     border: min(0.5vh, 0.5vw) solid ${colors.Nav};
+
+    width: 39.5vw;
+    height: 59.5vh;
     color: ${colors.Nav};
   }
 `
 
 export const imageSendLabel = styled.label`
+  position: absolute;
+  top: 5vh;
+
   width: 40vw;
-  height: 60vh;
+  height: 50vh;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   
@@ -89,9 +94,12 @@ export const imageSendLabel = styled.label`
   transition: all 0.5s;
 
   &:hover{
+    width: 39.5vw;
+    height: 59.5vh;
     background-color: ${colors.Background};
     border: min(0.5vh, 0.5vw) solid ${colors.Nav};
     color: ${colors.Nav};
+    z-index: 99;
   }
 `
 
@@ -107,4 +115,65 @@ export const imageCheckImage = styled.img`
 
 export const imageSubmitBtn = styled.input`
   display: none;
+`
+
+export const imageSelectLabelText = styled.p`
+  font-family: 'WorkSans';
+  font-size: min(20vh, 10vw);
+  margin: 0;
+  cursor: default;
+`
+
+export const imageSendLabelText = styled.p`
+  font-family: 'WorkSans';
+  font-size: min(15vh, 7.5vw);
+  margin: 0;
+  cursor: default;
+`
+
+export const selectOtherDiv = styled.div`
+  position: absolute;
+  bottom: 5vh;
+
+  width: 25vw;
+  height: 8vh;
+
+  padding-left: 7.5vw;
+  padding-right: 7.5vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  display: ${(props) => props.send};
+
+  font-family: 'WorkSans';
+  font-size: min(5vh, 2vw);
+  color: white;
+
+  background-color: ${colors.Nav};
+  transition: all 0.8s;
+
+  &:hover{
+    padding: 0;
+
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: min(15vh, 7.5vw);
+
+    width: 39.5vw;
+    height: 59.5vh;
+    background-color: ${colors.Background};
+    border: min(0.5vh, 0.5vw) solid ${colors.Nav};
+    color: ${colors.Nav};
+    z-index: 99;
+  }
+`
+
+export const selectOtherDivText = styled.p`
+  font-family: 'WorkSans';
+  margin: 0;
+  cursor: default;
 `

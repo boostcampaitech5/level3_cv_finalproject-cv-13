@@ -13,7 +13,7 @@ export default function Example() {
     <s.ExampleBackground>
       <Canvas
       camera={{ position: [3, 2, 0]}}>
-        <Points rotation={[Math.PI/2, Math.PI, Math.PI/2]} material-size={0.001} material-color="white" />
+        <Points rotation={[Math.PI/2, Math.PI, Math.PI/2]} material-size={0.001} />
         <OrbitControls autoRotate={true}/>
       </Canvas>
     </s.ExampleBackground>
