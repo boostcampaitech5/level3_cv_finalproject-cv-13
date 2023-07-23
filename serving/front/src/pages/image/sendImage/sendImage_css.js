@@ -126,7 +126,7 @@ export const imageSelectLabelText = styled.p`
 
 export const imageSendLabelText = styled.p`
   font-family: 'WorkSans';
-  font-size: min(15vh, 7.5vw);
+  font-size: min(12vh, 6vw);
   margin: 0;
   cursor: default;
 `
