@@ -94,11 +94,11 @@ export const imageSendLabel = styled.label`
   transition: all 0.5s;
 
   &:hover{
-    width: 39.5vw;
-    height: 59.5vh;
-    background-color: ${colors.Background};
+    width: 40vw;
+    height: 60vh;
+    /* background-color: ${colors.Background};
     border: min(0.5vh, 0.5vw) solid ${colors.Nav};
-    color: ${colors.Nav};
+    color: ${colors.Nav}; */
     z-index: 99;
   }
 `
@@ -135,8 +135,8 @@ export const selectOtherDiv = styled.div`
   position: absolute;
   bottom: 5vh;
 
-  width: 25vw;
-  height: 8vh;
+  width: 24.5vw;
+  height: 7.5vh;
 
   padding-left: 7.5vw;
   padding-right: 7.5vw;
@@ -150,11 +150,12 @@ export const selectOtherDiv = styled.div`
 
   font-family: 'WorkSans';
   font-size: min(5vh, 2vw);
-  color: white;
+  color: ${colors.Nav};
 
-  background-color: ${colors.Nav};
+  background-color: ${colors.Background};
   transition: all 0.8s;
 
+  border: min(0.5vh, 0.5vw) solid ${colors.Nav};
   &:hover{
     padding: 0;
 
