@@ -20,7 +20,7 @@ export const ShowPcdBackground = styled.div`
 export const PointSizeDiv = styled.div`
   position: relative;
 
-  height: 6vh;
+  height: 8vh;
   width: 80vw;
 
   display: flex;
