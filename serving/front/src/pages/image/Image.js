@@ -9,9 +9,19 @@ export default function Image() {
   const [state, setState] = useState('default')
   const [seed, setSeed] = useState(-1)
   
+  useEffect(() => {
+    if (state!=='default') {
+      hideScroll()
+    }
+  }, [state])
+  
   const makeScroll = () => {
     setScroll('scroll')
   }
+
+ const hideScroll = () => {
+    setScroll('hidden')
+ } 
  
   const makeSeed = (e) => {
     setSeed(e)
