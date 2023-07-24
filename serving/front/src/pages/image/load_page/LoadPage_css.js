@@ -24,7 +24,7 @@ export const LoadPageTextDiv = styled.div`
 `
 
 export const LoadPageText = styled.p`
-  font-size: min(13vh, 6.5vw);
+  font-size: min(2vh, 1vw);
   font-family: 'WorkSans';
   -webkit-touch-callout: none;
   -webkit-user-select: none;

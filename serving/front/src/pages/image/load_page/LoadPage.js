@@ -16,7 +16,9 @@ export default function LoadPage() {
   return (
     <s.LoadPageBackground>
       <s.LoadPageTextDiv>
-        Now Loading...Please Wait...
+        <s.LoadPageText>
+          Now Loading...Please Wait...
+        </s.LoadPageText>
       </s.LoadPageTextDiv>
       <s.LoadPageImgDiv>
         <Canvas
