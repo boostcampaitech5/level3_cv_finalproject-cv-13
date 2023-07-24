@@ -19,13 +19,16 @@ export default function ShowPcd(props) {
   }
 
   const sizeDown = (e) => {
-    if (pointSize > 0.005) {
+    if (pointSize > 0) {
       setPointSize(pointSize - 0.01)
     }
   }
   return (
     <s.ShowPcdBackground>
       <s.PointSizeDiv>
+        <s.TopPointSizeText>
+          Dot Size Control
+        </s.TopPointSizeText>
         <s.PointSizeUpBtn onClick={() => sizeUp()}>
           <s.PointSizeText>
             +

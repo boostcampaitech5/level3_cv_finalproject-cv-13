@@ -112,7 +112,7 @@ export default function SendImage(props) {
             HERE
           </s.imageSelectLabelText>
         </s.imageSelectLabel>
-        <s.imageSelectBtn onChange={(e) => setImageFile(e)} id='sendBtn' type="file" multiple="multiple" ref={fileInput} />
+        <s.imageSelectBtn accept=".gif, .jpg, .png" onChange={(e) => setImageFile(e)} id='sendBtn' type="file" multiple="multiple" ref={fileInput} />
 
         <s.imageSendLabel for="submitBtn" send={send}>
           <s.imageSendLabelText>

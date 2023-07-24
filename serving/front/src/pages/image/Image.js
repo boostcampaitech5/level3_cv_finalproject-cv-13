@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as s from './Image_css'
 import SendImage from './sendImage/sendImage'
 import LoadPage from './load_page/LoadPage'
 import ShowPcd from './showPcd/ShowPcd'
 
 export default function Image() {
+  useEffect(() => {
+    if (state==='pcd') {
+      setScroll('hidden')
+    }
+  }, [state])
   const [scroll, setScroll] = useState('hidden')
   const [state, setState] = useState('default')
   const [seed, setSeed] = useState(-1)
@@ -13,6 +18,10 @@ export default function Image() {
     setScroll('scroll')
   }
 
+ const hideScroll = () => {
+    setScroll('hidden')
+ } 
+ 
   const makeSeed = (e) => {
     setSeed(e)
   }
@@ -36,7 +45,9 @@ export default function Image() {
         loading:
         <LoadPage />,
         pcd:
-        <ShowPcd seed={seed}/>
+        <ShowPcd
+        seed={seed}
+        />
       }[state]
     }
     

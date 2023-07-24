@@ -6,8 +6,8 @@ export const ShowPcdBackground = styled.div`
   top: 0;
   left: 0;
 
-  width: 100%;
-  height: 100%;
+  height: 70vh;
+  width: 100vw;
 
   background-color: ${colors.Background};
 
@@ -29,6 +29,8 @@ export const PointSizeDiv = styled.div`
   justify-content: start;
   align-items: center;
 `
+
+
 export const PointSizeUpBtn = styled.div`
   height: 4vh;
   width: 4vh;
@@ -78,6 +80,21 @@ export const PointSizeViewDiv = styled.div`
   align-items: center;
 `
 export const PointSizeText = styled.p`
+  color: ${colors.Nav};
+  font-size: 2vh;
+  margin: 0;
+  cursor: default;
+  font-family: 'WorkSans';
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+`
+export const TopPointSizeText = styled.p`
+  position: absolute;
+  top: -3.5vh;
   color: ${colors.Nav};
   font-size: 2vh;
   margin: 0;

@@ -14,6 +14,23 @@ export const ExampleBackground = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+export const TopPointSizeText = styled.p`
+  position: absolute;
+  top: -3.5vh;
+  color: ${colors.Nav};
+  font-size: 2vh;
+  margin: 0;
+  cursor: default;
+  font-family: 'WorkSans';
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+`
+
 export const ExampleImageDiv = styled.div`
   position: relative;
   right: 0;

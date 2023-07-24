@@ -17,7 +17,7 @@ export default function Example() {
   }
 
   const sizeDown = (e) => {
-    if (pointSize > 0.005) {
+    if (pointSize > 0) {
       setPointSize(pointSize - 0.01)
     }
   }
@@ -33,7 +33,11 @@ export default function Example() {
 
   return (
     <s.ExampleBackground onKeyDown={sizeButton}>
+      
       <s.PointSizeDiv>
+        <s.TopPointSizeText>
+          Dot Size Control
+        </s.TopPointSizeText>
         <s.PointSizeUpBtn onClick={() => sizeUp()}>
           <s.PointSizeText>
             +
