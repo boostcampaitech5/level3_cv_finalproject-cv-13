@@ -51,6 +51,7 @@ def run_main(seed):
 
     # Load and cat input images
     img_ori = np.array(Image.open(path).resize((1024, 512), Image.BICUBIC))[..., :3]
+    img_ori = np.fliplr(img_ori)
 
     # VP detection and line segment extraction
     _, vp, _, _, panoEdge, _, _ = panoEdgeDetection(img_ori,
