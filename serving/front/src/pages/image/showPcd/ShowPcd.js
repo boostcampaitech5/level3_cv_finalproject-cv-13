@@ -6,6 +6,12 @@ import { useState } from "react"
 
 function Points(props) {
   const points = useLoader(PCDLoader, `img_dir/temp_pcd_${props.seed}.pcd`)
+  // const points = useLoader(PCDLoader, 'temp.pcd')
+
+  return <primitive object={points} {...props} />
+}
+
+export default function ShowPcd(props) {
   const [pointSize, setPointSize] = useState(0.001)
 
   const sizeUp = (e) => {
@@ -17,12 +23,6 @@ function Points(props) {
       setPointSize(pointSize - 0.005)
     }
   }
-  // const points = useLoader(PCDLoader, 'temp.pcd')
-
-  return <primitive object={points} {...props} />
-}
-
-export default function ShowPcd(props) {
   return (
     <s.ShowPcdBackground>
       <s.PointSizeDiv>
@@ -45,7 +45,7 @@ export default function ShowPcd(props) {
       <s.ExampleImageDiv>
         <Canvas
         camera={{ position: [3, 2, 0]}}>
-          <Points seed={props.seed} rotation={[Math.PI/2, Math.PI, Math.PI/2]} material-size={0.01} material-color="white" />
+          <Points seed={props.seed} rotation={[Math.PI/2, Math.PI, Math.PI/2]} material-size={pointSize} material-color="white" />
           <OrbitControls autoRotate={true}/>
         </Canvas>
       </s.ExampleImageDiv>
