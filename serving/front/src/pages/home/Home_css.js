@@ -6,7 +6,7 @@ export const HomeBackground = styled.div`
   left: 0;
   top: 20vh;
 
-  height: 80vh;
+  height: 70vh;
   width: 100vw;
 
   display: flex;
