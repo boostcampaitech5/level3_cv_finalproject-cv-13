@@ -4,7 +4,6 @@ import { colors } from '../../design/design'
 export const ImageBackground = styled.div`
   position: absolute;
   top: 20vh;
-  left: 10vw;
 
   height: 70vh;
   width: 80vw;

@@ -6,7 +6,7 @@ import ShowPcd from './showPcd/ShowPcd'
 
 export default function Image() {
   useEffect(() => {
-    if (state==='pcd') {
+    if (state!=='default') {
       hideScroll()
     }
   }, [state])
