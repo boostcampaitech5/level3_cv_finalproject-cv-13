@@ -2,6 +2,7 @@ import { Canvas, useLoader } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { PCDLoader } from 'three-stdlib'
 import * as s from "./LoadPage_css";
+import { useEffect } from 'react'
 
 function Points(props) {
   // const points = useLoader(PCDLoader, `load_image_${props.seed}.pcd`)
