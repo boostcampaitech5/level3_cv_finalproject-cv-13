@@ -13,6 +13,8 @@ export const ImageBackground = styled.div`
   justify-content: start;
   align-items: center;
 
+  background-color: ${colors.Background};
+
   overflow-X: ${props => props.scroll};
   overflow-Y: hidden;
 
