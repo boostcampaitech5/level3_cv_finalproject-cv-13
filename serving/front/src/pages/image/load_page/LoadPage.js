@@ -11,6 +11,9 @@ function Points(props) {
 }
 
 export default function LoadPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
   // const random_seed = Math.floor(Math.random()*5)
   // console.log(random_seed)
   return (

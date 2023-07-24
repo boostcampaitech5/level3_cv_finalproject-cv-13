@@ -2,7 +2,7 @@ import { Canvas, useLoader } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { PCDLoader } from 'three-stdlib'
 import * as s from "./ShowPcd_css";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function Points(props) {
   const points = useLoader(PCDLoader, `img_dir/temp_pcd_${props.seed}.pcd`)
@@ -13,7 +13,9 @@ function Points(props) {
 
 export default function ShowPcd(props) {
   const [pointSize, setPointSize] = useState(0)
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
   const sizeUp = (e) => {
     setPointSize(pointSize + 0.01)
   }
