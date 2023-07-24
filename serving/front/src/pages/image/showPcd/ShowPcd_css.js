@@ -20,7 +20,7 @@ export const ShowPcdBackground = styled.div`
 export const PointSizeDiv = styled.div`
   position: relative;
 
-  height: 5vh;
+  height: 6vh;
   width: 80vw;
 
   display: flex;
@@ -93,8 +93,6 @@ export const PointSizeText = styled.p`
   user-select: none;
 `
 export const TopPointSizeText = styled.p`
-  position: absolute;
-  top: -3.5vh;
   color: ${colors.Nav};
   font-size: 2vh;
   margin: 0;
@@ -115,4 +113,13 @@ export const ExampleImageDiv = styled.div`
 
   height: 80vh;
   width: 80vw;
+`
+
+export const PointSizeTextDiv = styled.div`
+  margin-right: 0.5vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 `

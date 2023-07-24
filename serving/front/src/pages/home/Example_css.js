@@ -16,8 +16,6 @@ export const ExampleBackground = styled.div`
 `
 
 export const TopPointSizeText = styled.p`
-  position: absolute;
-  top: -3.5vh;
   color: ${colors.Nav};
   font-size: 2vh;
   margin: 0;
@@ -43,7 +41,7 @@ export const PointSizeDiv = styled.div`
 
   left: 10vw;
 
-  height: 5vh;
+  height: 6vh;
   width: 80vw;
 
   display: flex;
@@ -111,4 +109,13 @@ export const PointSizeText = styled.p`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+`
+
+export const PointSizeTextDiv = styled.div`
+  margin-right: 0.5vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 `
