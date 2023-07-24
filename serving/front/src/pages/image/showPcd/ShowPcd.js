@@ -15,7 +15,7 @@ export default function ShowPcd(props) {
     <s.ShowPcdBackground>
       <Canvas
       camera={{ position: [3, 2, 0]}}>
-        <Points seed={props.seed} rotation={[Math.PI/2, Math.PI, Math.PI/2]} material-size={0.001} material-color="white" />
+        <Points seed={props.seed} rotation={[Math.PI/2, Math.PI, Math.PI/2]} material-size={0.01} material-color="white" />
         <OrbitControls autoRotate={true}/>
       </Canvas>
     </s.ShowPcdBackground>
