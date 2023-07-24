@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef } from 'react'
 import * as s from "./sendImage_css";
 import axios from 'axios';
 import ShowPcd from '../showPcd/ShowPcd'
@@ -11,6 +11,7 @@ export default function SendImage(props) {
 
   // const [seed, setSeed] = useState(-1)
   // const [margin, setMargin] = useState(0)
+  const fileInput = useRef()
 
   const ImageProcess = async (e) => {
     props.controlState('loading')
@@ -51,6 +52,14 @@ export default function SendImage(props) {
     setSend('flex')
     props.setScroll()
     // setMargin('10vw')
+  }
+
+  const selectOtherImage = (e) => {
+    setImage('')
+    setFile('')
+    setSelect('flex')
+    setSend('none')
+    fileInput.current.value = ""
   }
 
   return (
@@ -99,15 +108,36 @@ export default function SendImage(props) {
       <s.imageSelectForm onSubmit={(e) => ImageProcess(e)}>
 
         <s.imageSelectLabel for="sendBtn" select={select}>
-          HERE
+          <s.imageSelectLabelText>
+            HERE
+          </s.imageSelectLabelText>
         </s.imageSelectLabel>
-        <s.imageSelectBtn onChange={(e) => setImageFile(e)} id='sendBtn' type="file" multiple="multiple" />
+        <s.imageSelectBtn onChange={(e) => setImageFile(e)} id='sendBtn' type="file" multiple="multiple" ref={fileInput} />
 
         <s.imageSendLabel for="submitBtn" send={send}>
-          SHOW
+          <s.imageSendLabelText>
+            MAKE
+          </s.imageSendLabelText>
+          <s.imageSendLabelText>
+            POINT
+          </s.imageSendLabelText>
+          <s.imageSendLabelText>
+            CLOUD
+          </s.imageSendLabelText>
         </s.imageSendLabel>
         <s.imageSubmitBtn id='submitBtn' type="submit" />
         
+        <s.selectOtherDiv send={send} onClick={e => selectOtherImage(e)}>
+          <s.selectOtherDivText>
+            SELECT
+          </s.selectOtherDivText>
+          <s.selectOtherDivText>
+            OTHER
+          </s.selectOtherDivText>
+          <s.selectOtherDivText>
+            IMAGE
+          </s.selectOtherDivText>
+        </s.selectOtherDiv>
       </s.imageSelectForm>
 
       {/* { pcd === false
