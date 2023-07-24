@@ -8,7 +8,7 @@ export default function Image() {
   const [scroll, setScroll] = useState('hidden')
   const [state, setState] = useState('default')
   const [seed, setSeed] = useState(-1)
-  
+
   useEffect(() => {
     if (state!=='default') {
       hideScroll()
@@ -33,7 +33,8 @@ export default function Image() {
   }
 
   return (
-    <s.ImageBackground>
+    <s.ImageBackground
+    scroll={scroll}>
     {
       {
         default: 
