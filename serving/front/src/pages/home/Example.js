@@ -22,18 +22,8 @@ export default function Example() {
     }
   }
 
-  const sizeButton = (e) => {
-    console.log(e);
-    if (e.key === '+') {
-      sizeUp()
-    } else if (e.key === '-') {
-      sizeDown()
-    }
-  }
-
   return (
-    <s.ExampleBackground onKeyDown={sizeButton}>
-      
+    <s.ExampleBackground>
       <s.PointSizeDiv>
         <s.TopPointSizeText>
           Dot Size Control

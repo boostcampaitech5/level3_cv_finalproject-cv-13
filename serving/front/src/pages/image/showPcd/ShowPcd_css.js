@@ -26,6 +26,8 @@ export const PointSizeDiv = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+
+  z-index: 9999
 `
 
 
