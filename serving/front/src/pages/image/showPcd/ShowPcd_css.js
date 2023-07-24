@@ -27,7 +27,7 @@ export const PointSizeDiv = styled.div`
   justify-content: start;
   align-items: center;
 
-  z-index: 9999
+  z-index: 9999;
 `
 
 
