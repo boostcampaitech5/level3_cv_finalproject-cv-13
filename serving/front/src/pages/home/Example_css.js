@@ -49,6 +49,7 @@ export const PointSizeDiv = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+  align-self: start;
 `
 export const PointSizeUpBtn = styled.div`
   height: 4vh;

@@ -12,10 +12,6 @@ export default function Image() {
   const makeScroll = () => {
     setScroll('scroll')
   }
-
- const hideScroll = () => {
-    setScroll('hidden')
- } 
  
   const makeSeed = (e) => {
     setSeed(e)
