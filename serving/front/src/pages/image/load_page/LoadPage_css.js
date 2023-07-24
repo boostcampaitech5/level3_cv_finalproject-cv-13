@@ -7,7 +7,7 @@ export const LoadPageBackground = styled.div`
   left: 0;
 
   height: 70vh;
-  width: 100vw;
+  width: 80vw;
 
   color: ${colors.Else};
   background-color: ${colors.Background};

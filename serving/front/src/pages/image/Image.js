@@ -5,15 +5,15 @@ import LoadPage from './load_page/LoadPage'
 import ShowPcd from './showPcd/ShowPcd'
 
 export default function Image() {
+  const [scroll, setScroll] = useState('hidden')
+  const [state, setState] = useState('default')
+  const [seed, setSeed] = useState(-1)
   useEffect(() => {
     if (state!=='default') {
       hideScroll()
     }
   }, [state])
-  const [scroll, setScroll] = useState('hidden')
-  const [state, setState] = useState('default')
-  const [seed, setSeed] = useState(-1)
-
+  
   const makeScroll = () => {
     setScroll('scroll')
   }
