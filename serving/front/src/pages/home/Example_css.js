@@ -44,7 +44,7 @@ export const PointSizeDiv = styled.div`
   left: 10vw;
 
   height: 5vh;
-  width: 100vw;
+  width: 80 vw;
 
   display: flex;
   justify-content: start;
