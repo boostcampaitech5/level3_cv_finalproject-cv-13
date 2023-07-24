@@ -10,34 +10,43 @@ function Points(props) {
 }
 
 export default function Example() {
-  const [pointSize, setPointSize] = useState(0.001)
+  const [pointSize, setPointSize] = useState(0)
 
   const sizeUp = (e) => {
-    setPointSize(pointSize + 0.005)
+    setPointSize(pointSize + 0.01)
   }
 
   const sizeDown = (e) => {
     if (pointSize > 0.005) {
-      setPointSize(pointSize - 0.005)
+      setPointSize(pointSize - 0.01)
+    }
+  }
+
+  const sizeButton = (e) => {
+    console.log(e);
+    if (e.key === '+') {
+      sizeUp()
+    } else if (e.key === '-') {
+      sizeDown()
     }
   }
 
   return (
-    <s.ExampleBackground>
+    <s.ExampleBackground onKeyDown={sizeButton}>
       <s.PointSizeDiv>
         <s.PointSizeUpBtn onClick={() => sizeUp()}>
           <s.PointSizeText>
-            Size Up
+            +
           </s.PointSizeText>
         </s.PointSizeUpBtn>
         <s.PointSizeDownBtn onClick={() => sizeDown()}>
           <s.PointSizeText>
-            Size Down
+            -
           </s.PointSizeText>
         </s.PointSizeDownBtn>
         <s.PointSizeViewDiv>
           <s.PointSizeText>
-            {Math.floor(pointSize*10000)/10000}
+            {Math.round(pointSize*100)/100}
           </s.PointSizeText>
         </s.PointSizeViewDiv>
       </s.PointSizeDiv>

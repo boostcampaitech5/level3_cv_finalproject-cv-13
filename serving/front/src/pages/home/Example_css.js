@@ -34,7 +34,7 @@ export const PointSizeDiv = styled.div`
 `
 export const PointSizeUpBtn = styled.div`
   height: 4vh;
-  width: 9vh;
+  width: 4vh;
 
   display: flex;
   justify-content: center;
@@ -48,13 +48,13 @@ export const PointSizeUpBtn = styled.div`
   &:hover {
     transition: all 0.5s;
     height: 5vh;
-    width: 10vh;
+    width: 5vh;
   }
 `
 
 export const PointSizeDownBtn = styled.div`
   height: 4vh;
-  width: 12vh;
+  width: 4vh;
 
   display: flex;
   justify-content: center;
@@ -68,7 +68,7 @@ export const PointSizeDownBtn = styled.div`
   &:hover {
     transition: all 0.5s;
     height: 5vh;
-    width: 13vh;
+    width: 5vh;
   }
 `
 
