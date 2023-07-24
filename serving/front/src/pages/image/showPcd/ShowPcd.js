@@ -26,9 +26,18 @@ export default function ShowPcd(props) {
   return (
     <s.ShowPcdBackground>
       <s.PointSizeDiv>
-        <s.TopPointSizeText>
-          Dot Size Control
-        </s.TopPointSizeText>
+        <s.PointSizeTextDiv>
+          <s.TopPointSizeText>
+            Dot
+          </s.TopPointSizeText>
+          <s.TopPointSizeText>
+            Size
+          </s.TopPointSizeText>
+          <s.TopPointSizeText>
+            Control
+          </s.TopPointSizeText>
+        </s.PointSizeTextDiv>
+        
         <s.PointSizeUpBtn onClick={() => sizeUp()}>
           <s.PointSizeText>
             +
