@@ -17,4 +17,11 @@ export const TeamText = styled.p`
   color: ${colors.Nav};
   font-size: min(2vh, 1vw);
   cursor: default;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `

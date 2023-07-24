@@ -25,6 +25,13 @@ export const LoadPageTextDiv = styled.div`
 
 export const LoadPageText = styled.p`
   font-size: min(13vh, 6.5vw);
+  font-family: 'WorkSans';
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 
 export const LoadPageImgDiv = styled.div`

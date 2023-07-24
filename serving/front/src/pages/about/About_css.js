@@ -52,6 +52,13 @@ export const AboutItemText = styled.p`
     color: ${props =>
     props.color === false && colors.Nav}
   }
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 
 export const AboutContextDiv =styled.div`

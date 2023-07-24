@@ -37,6 +37,13 @@ export const NavText = styled.p`
   cursor: default;
   transition: all 0.5s;
 
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   &:hover {
     color: ${props =>
     props.color === false && colors.Nav}

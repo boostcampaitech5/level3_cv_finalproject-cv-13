@@ -32,6 +32,13 @@ export const imageSendText = styled.p`
   font-size: min(13vh, 6.5vw);
   margin: 0;
   cursor: default;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 export const imageSelectForm = styled.form`
   width: 40vw;
@@ -122,6 +129,13 @@ export const imageSelectLabelText = styled.p`
   font-size: min(20vh, 10vw);
   margin: 0;
   cursor: default;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 
 export const imageSendLabelText = styled.p`
@@ -129,6 +143,13 @@ export const imageSendLabelText = styled.p`
   font-size: min(12vh, 6vw);
   margin: 0;
   cursor: default;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 
 export const selectOtherDiv = styled.div`
@@ -177,4 +198,11 @@ export const selectOtherDivText = styled.p`
   font-family: 'WorkSans';
   margin: 0;
   cursor: default;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
