@@ -106,6 +106,8 @@ export const TopPointSizeText = styled.p`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  z-index: 10000
 `
 
 export const ExampleImageDiv = styled.div`

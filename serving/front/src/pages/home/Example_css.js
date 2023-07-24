@@ -34,6 +34,7 @@ export const TopPointSizeText = styled.p`
 export const ExampleImageDiv = styled.div`
   position: relative;
   right: 0;
+  margin-top: 2vh;
   height: 85vh;
   width: 100vw;
 `

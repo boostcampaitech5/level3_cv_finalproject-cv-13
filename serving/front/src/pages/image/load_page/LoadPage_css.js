@@ -6,7 +6,7 @@ export const LoadPageBackground = styled.div`
   top: 0;
   left: 0;
 
-  height: 70vh;
+  height: 90vh;
   width: 80vw;
 
   color: ${colors.Else};
@@ -36,5 +36,5 @@ export const LoadPageText = styled.p`
 
 export const LoadPageImgDiv = styled.div`
   width: 100%;
-  height: 90%;  
+  height: 100%;  
 `
