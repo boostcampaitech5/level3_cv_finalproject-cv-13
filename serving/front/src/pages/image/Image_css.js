@@ -16,7 +16,7 @@ export const ImageBackground = styled.div`
   background-color: ${colors.Background};
 
   overflow-X: ${props => props.scroll};
-  overflow-y: hidden;
+  // overflow-y: hidden;
   &::-webkit-scrollbar {
     height: 1vh;
   }
