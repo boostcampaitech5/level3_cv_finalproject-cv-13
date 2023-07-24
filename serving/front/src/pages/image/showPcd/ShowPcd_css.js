@@ -7,7 +7,7 @@ export const ShowPcdBackground = styled.div`
   left: 0;
 
   height: 70vh;
-  width: 100vw;
+  width: 80vw;
 
   background-color: ${colors.Background};
 
@@ -23,7 +23,7 @@ export const PointSizeDiv = styled.div`
   left: 10vw;
 
   height: 5vh;
-  width: 100vw;
+  width: 80vw;
 
   display: flex;
   justify-content: start;
@@ -112,5 +112,5 @@ export const ExampleImageDiv = styled.div`
   position: relative;
   right: 0;
   height: 85vh;
-  width: 100vw;
+  width: 80vw;
 `
