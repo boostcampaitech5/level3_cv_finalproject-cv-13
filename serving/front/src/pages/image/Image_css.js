@@ -23,12 +23,12 @@ export const ImageBackground = styled.div`
 
   &::-webkit-scrollbar-thumb {
     background-color: ${colors.Else};
-    border-radius: 10px;
+    border-radius: 0.5vh;
   }
 
   &::-webkit-scrollbar-track {
     background-color: ${colors.Nav};
-    border-radius: 10px;
+    border-radius: 0.5vh;
 
   }
 `

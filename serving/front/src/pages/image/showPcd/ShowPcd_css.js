@@ -111,7 +111,7 @@ export const ExampleImageDiv = styled.div`
   margin-top: 2vh;
   right: 0;
 
-  height: 80vh;
+  height: 60vh;
   width: 80vw;
 `
 

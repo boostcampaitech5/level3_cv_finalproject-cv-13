@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 
 function Points(props) {
   const points = useLoader(PCDLoader, `img_dir/temp_pcd_${props.seed}.pcd`)
-  // const points = useLoader(PCDLoader, 'temp.pcd')
+  // const points = useLoader(PCDLoader, 'temp_1.pcd')
 
   return <primitive object={points} {...props} />
 }

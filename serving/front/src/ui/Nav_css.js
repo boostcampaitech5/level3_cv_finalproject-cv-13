@@ -16,7 +16,7 @@ export const NavBackground = styled.div`
   align-items: center;
 
   z-index: 99;
-  border-bottom: 2px solid ${colors.Else};
+  border-bottom: 0.5vh solid ${colors.Else};
 `
 
 export const NavTextDiv = styled.div`

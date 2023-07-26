@@ -39,6 +39,11 @@ export const imageSendText = styled.p`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  &:hover {
+    color: ${colors.BoldElse};
+    transition: all 0.5s;
+  }
 `
 export const imageSelectForm = styled.form`
   width: 40vw;

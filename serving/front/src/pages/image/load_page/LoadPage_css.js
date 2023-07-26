@@ -35,6 +35,6 @@ export const LoadPageText = styled.p`
 `
 
 export const LoadPageImgDiv = styled.div`
-  width: 100vw;
-  height: 80vh;  
+  width: 80vw;
+  height: 70vh;  
 `
