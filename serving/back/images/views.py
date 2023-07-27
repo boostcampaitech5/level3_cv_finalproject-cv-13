@@ -92,8 +92,8 @@ def review(request):
         review = pd.DataFrame(
             data={
                 "Image Path" : request.data['image_path'],
-                "Accuracy Star" : request.data['acc_star'],
-                "Service Star" : request.data['ser_star']
+                "Accuracy Star" : str(request.data['acc_star']),
+                "Service Star" : str(request.data['ser_star'])
             }
         )
 
