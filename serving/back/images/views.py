@@ -7,6 +7,8 @@ import base64
 from django.http import FileResponse
 import random
 import os
+import pandas as pd
+import numpy as np
 
 @api_view(['POST'])
 def process(request):
@@ -79,4 +81,22 @@ def send_depth(request):
 
 def send_pcd(reqeust):
     # response = FileResponse(open("temp_pcd.pcd", "rb"))
+    return HttpResponse(status=200)
+
+@api_view(['POST'])
+def review(request):
+    if os.path.exists('review.csv'):
+        review = pd.read_csv('review.csv')
+        review.loc[len(review)] = [request.data['image_path'], request.data['acc_star'], request.data['ser_star']]
+    else:
+        review = pd.DataFrame(
+            data={
+                "Image Path" : request.data['image_path'],
+                "Accuracy Star" : request.data['acc_star'],
+                "Service Star" : request.data['ser_star']
+            }
+        )
+
+        review.to_csv("review.csv")
+        
     return HttpResponse(status=200)
