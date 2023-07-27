@@ -85,8 +85,9 @@ def send_pcd(reqeust):
 
 @api_view(['POST'])
 def review(request):
-    if os.path.exists('review.csv'):
-        review = pd.read_csv('review.csv')
+    file_path = os.path.join('logs', 'review.csv')
+    if os.path.exists(file_path):
+        review = pd.read_csv(file_path)
         review.loc[len(review)] = [request.data['image_path'], request.data['acc_star'], request.data['ser_star']]
     else:
         review = pd.DataFrame(
@@ -97,6 +98,6 @@ def review(request):
             }
         )
 
-        review.to_csv("review.csv")
+        review.to_csv(file_path)
         
     return HttpResponse(status=200)
