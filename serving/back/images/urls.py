@@ -8,4 +8,5 @@ urlpatterns = [
     path('result/', views.result, name='result'),
     path('send/depth/', views.send_depth, name='send_depth'),
     path('send/pcd/', views.send_pcd, name='send_pcd'),
+    path('review/', views.review, name='review'),
 ]
