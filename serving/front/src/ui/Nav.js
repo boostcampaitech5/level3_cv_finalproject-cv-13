@@ -33,6 +33,9 @@ export default function Nav(props) {
           IMAGE
         </s.NavText>
       </s.NavTextDiv>
+      <s.Title>
+        PocketHome
+      </s.Title>
     </s.NavBackground>
   )
 }

@@ -130,7 +130,8 @@ export const ReviewDiv = styled.div`
   top: 0;
 
   height: 4.5vh;
-  width: 13vw;
+  width: 11vw;
+  font-size: 2vh;
 
   border: 0.5vh dotted ${colors.Nav};
   color: ${colors.Nav};
@@ -151,13 +152,39 @@ export const ReviewDiv = styled.div`
   z-index: 99999
 `
 
+export const ReviewEndDiv = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  height: 4.5vh;
+  width: 13vw;
+  font-size: 2vh;
+
+  border: 0.5vh dotted ${colors.Nav};
+  color: ${colors.Nav};
+  overFlow: hidden;
+  transition: all 0.8s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  &:hover {
+    font-size: 2.2vh;
+    border: 0.5vh dotted ${colors.Else};
+    color: ${colors.Else};
+  }
+
+  z-index: 99999
+`
+
 export const ReivewTextDiv = styled.div`
   width: 19vw;
   height: 2vh;
 `
 
 export const ReviewTopText = styled.p`
-  font-size: 2vh;
   margin: 1vh 0 0 1vw;
   cursor: default;
   font-family: 'WorkSans';
@@ -201,8 +228,9 @@ export const Star = styled.img`
 
 export const Submit = styled.div`
   position: relative;
-  left: 2vw;
   top: 2vh;
+  margin-left: auto;
+  margin-right: auto;
 
   height: 4vh;
   width: 10vw;
@@ -233,3 +261,4 @@ export const SubmitText = styled.p`
   -ms-user-select: none;
   user-select: none;
 `
+

@@ -83,6 +83,7 @@ function Points(props) {
 }
 
 export default function ShowPcd(props) {
+  const [rate, setRate] = useState(false)
   const [pointSize, setPointSize] = useState(0)
   const [accStar, setAccStar] = useState(3)
   const [serStar, setSerStar] = useState(3)
@@ -100,6 +101,7 @@ export default function ShowPcd(props) {
   }
 
   const SendReview = () => {
+    setRate(true)
     axios({
       method: 'POST',
       url: 'http://34.64.255.206:8000/images/review/',
@@ -128,31 +130,43 @@ export default function ShowPcd(props) {
   }
   return (
     <s.ShowPcdBackground>
-      <s.ReviewDiv>
-        <s.ReivewTextDiv>
-          <s.ReviewTopText>
-            Will You Rating Us?
-          </s.ReviewTopText>
-          <s.ReviewText>
-            How close is the image to the actual room?
-          </s.ReviewText>
-          <s.ReviewStarDiv>
-            <Stars starNum={ChangeAccStar} />
-          </s.ReviewStarDiv>
+      {
+        {
+          false: 
+            <s.ReviewDiv rate={rate}>
+              <s.ReivewTextDiv>
+                <s.ReviewTopText>
+                  Will You Rate Us?
+                </s.ReviewTopText>
+                <s.ReviewText>
+                  How close is the image to the actual room?
+                </s.ReviewText>
+                <s.ReviewStarDiv>
+                  <Stars starNum={ChangeAccStar} />
+                </s.ReviewStarDiv>
+      
+                <s.ReviewText>
+                  How was the service provided?
+                </s.ReviewText>
+                <s.ReviewStarDiv>
+                  <Stars starNum={ChangeSerStar} />
+                </s.ReviewStarDiv>
+                <s.Submit onClick={() => SendReview()}>
+                  <s.SubmitText>
+                    SUBMIT
+                  </s.SubmitText>
+                </s.Submit>
+              </s.ReivewTextDiv>,
+            </s.ReviewDiv>,
+          true:
+            <s.ReviewEndDiv>
+              <s.ReviewTopText>
+                Thanks For Rate Us
+              </s.ReviewTopText>
+            </s.ReviewEndDiv>
+        }[rate]
+      }
 
-          <s.ReviewText>
-            How was the service provided?
-          </s.ReviewText>
-          <s.ReviewStarDiv>
-            <Stars starNum={ChangeSerStar} />
-          </s.ReviewStarDiv>
-          <s.Submit onClick={() => SendReview()}>
-            <s.SubmitText>
-              SUBMIT
-            </s.SubmitText>
-          </s.Submit>
-        </s.ReivewTextDiv>
-      </s.ReviewDiv>
       <s.PointSizeDiv>
         <s.PointSizeTextDiv>
           <s.TopPointSizeText>

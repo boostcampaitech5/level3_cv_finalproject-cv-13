@@ -49,3 +49,21 @@ export const NavText = styled.p`
     props.color === false && colors.Nav}
   }
 `
+
+export const Title = styled.p`
+  position: absolute;
+  right: 0;
+  margin: 0;
+
+  font-size: min(8vh, 4vw);
+  font-family: 'WorkSans';
+  color: ${colors.Nav};
+  cursor: default;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+`

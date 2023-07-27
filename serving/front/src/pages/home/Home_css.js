@@ -12,15 +12,15 @@ export const HomeBackground = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 
   background-color: ${colors.Background};
   /* background-color: black; */
 `
 export const HomePurposeDiv = styled.div`
   position: relative;
-  height: 70vh;
-  width: 35vw;
+
+  width: 80vw;
 
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ export const HomeProcessDiv = styled.div`
   position: relative;
 
   height: 70vh;
-  width: 35vw;
+  width: 80vw;
 
   display: flex;
   flex-direction: column;
@@ -59,10 +59,10 @@ export const HomeSequenceDiv = styled.div`
 export const HomeDivTitleText = styled.p`
   color: ${colors.Else};
 
-  margin: 0;
+  margin: 4vh 0 0 0;
   font-family: 'WorkSans';
   cursor: default;
-  font-size: min(10vh, 5vw);
+  font-size: min(8vh, 3.5vw);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -72,7 +72,6 @@ export const HomeDivTitleText = styled.p`
 
   &:hover {
     color: ${colors.BoldElse};
-    font-size: min(12vh, 6vw);
     transition: all 0.5s;
   }
 `
@@ -101,7 +100,7 @@ export const HomeDivSubTitleText = styled.p`
 export const HomeDivContextText = styled.p`
   color: ${colors.Else};
 
-  margin: 0;
+  margin: 2vh 0 0 0;
   font-family: 'WorkSans';
   cursor: default;
   font-size: min(3vh, 1.5vw);
@@ -116,7 +115,6 @@ export const HomeDivContextText = styled.p`
 
   &:hover {
     color: ${colors.BoldElse};
-    font-size: min(4vh, 2vw);
     transition: all 0.5s;
   }
 `
@@ -139,7 +137,6 @@ export const HomeDivSequenceText = styled.p`
 
   &:hover {
     color: ${colors.BoldElse};
-    font-size: min(4vh, 2vw);
     transition: all 0.5s;
   }
 `
@@ -147,7 +144,7 @@ export const HomeDivSequenceText = styled.p`
 export const SwitchStateBtn = styled.div`
   position: absolute;
   right: 0;
-  top: 3vh;
+  top: 0;
 
   width: 10vw;
   height: 5vh;
@@ -179,4 +176,23 @@ export const SwitchStateBtnText = styled.p`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+`
+
+export const MainPcdDiv = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 35vh;
+  width: 80vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const MainPcdImageDiv = styled.div`
+  height: 35vh;
+  width: 19vw;
+  border: 0.5vh solid ${colors.Nav};
 `
