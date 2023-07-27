@@ -3,19 +3,78 @@ import { OrbitControls } from '@react-three/drei'
 import { PCDLoader } from 'three-stdlib'
 import * as s from "./ShowPcd_css";
 import { useState, useEffect } from "react"
+import fill_star from "./fill_star.png"
+import empty_star from "./empty_star.png"
+
+function Stars(props) {
+  const [star, setStar] = useState(3)
+  const [star1, setStar1] = useState(fill_star)
+  const [star2, setStar2] = useState(fill_star)
+  const [star3, setStar3] = useState(fill_star)
+  const [star4, setStar4] = useState(empty_star)
+  const [star5, setStar5] = useState(empty_star)
+  const setStars = [setStar1, setStar2, setStar3, setStar4, setStar5]
+
+  const StarNum = (num) => {
+    for (let i=0; i<5; i++) {
+      if (i+1 <= num) {
+        setStars[i](fill_star)
+      } else {
+        setStars[i](empty_star)
+      }
+    }
+  }
+
+  const ResetStar = () => {
+    console.log('out');
+    for (let i=0; i<5; i++) {
+      if (i+1 <= star) {
+        setStars[i](fill_star)
+      } else {
+        setStars[i](empty_star)
+      }
+    }
+  }
+  return (
+    <>
+      <s.Star src={star1}
+      onMouseEnter={() => StarNum(1)}
+      onMouseLeave={() => ResetStar()}
+      onClick={() => setStar(1)} />
+      <s.Star src={star2}
+      onMouseEnter={() => StarNum(2)}
+      onMouseLeave={() => ResetStar()}
+      onClick={() => setStar(2)} />
+      <s.Star src={star3}
+      onMouseEnter={() => StarNum(3)}
+      onMouseLeave={() => ResetStar()}
+      onClick={() => setStar(3)} />
+      <s.Star src={star4}
+      onMouseEnter={() => StarNum(4)}
+      onMouseLeave={() => ResetStar()}
+      onClick={() => setStar(4)} />
+      <s.Star src={star5}
+      onMouseEnter={() => StarNum(5)}
+      onMouseLeave={() => ResetStar()}
+      onClick={() => setStar(5)} />
+    </>
+  )
+}
 
 function Points(props) {
-  const points = useLoader(PCDLoader, `img_dir/temp_pcd_${props.seed}.pcd`)
-  // const points = useLoader(PCDLoader, 'temp_1.pcd')
+  // const points = useLoader(PCDLoader, `img_dir/temp_pcd_${props.seed}.pcd`)
+  const points = useLoader(PCDLoader, 'temp_1.pcd')
 
   return <primitive object={points} {...props} />
 }
 
 export default function ShowPcd(props) {
   const [pointSize, setPointSize] = useState(0)
+
   useEffect(() => {
     window.scrollTo(0, 0)
   })
+
   const sizeUp = (e) => {
     setPointSize(pointSize + 0.01)
   }
@@ -27,6 +86,31 @@ export default function ShowPcd(props) {
   }
   return (
     <s.ShowPcdBackground>
+      <s.ReviewDiv>
+        <s.ReivewTextDiv>
+          <s.ReviewTopText>
+            Will You Rating Us?
+          </s.ReviewTopText>
+          <s.ReviewText>
+            How close is the image to the actual room?
+          </s.ReviewText>
+          <s.ReviewStarDiv>
+            <Stars />
+          </s.ReviewStarDiv>
+
+          <s.ReviewText>
+            How was the service provided?
+          </s.ReviewText>
+          <s.ReviewStarDiv>
+            <Stars />
+          </s.ReviewStarDiv>
+          <s.Submit>
+            <s.SubmitText>
+              SUBMIT
+            </s.SubmitText>
+          </s.Submit>
+        </s.ReivewTextDiv>
+      </s.ReviewDiv>
       <s.PointSizeDiv>
         <s.PointSizeTextDiv>
           <s.TopPointSizeText>
