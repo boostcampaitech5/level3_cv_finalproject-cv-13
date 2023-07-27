@@ -17,13 +17,6 @@ function Stars(props) {
   const [star5, setStar5] = useState(empty_star)
   const setStars = [setStar1, setStar2, setStar3, setStar4, setStar5]
 
-  const SendReview = () => {
-    axios({
-      method: 'POST',
-      url: 'http://34.64.255.206:8000/images/review/',
-      data: {'img_'}
-    })
-  }
   const StarNum = (num) => {
     for (let i=0; i<5; i++) {
       if (i+1 <= num) {
@@ -49,23 +42,38 @@ function Stars(props) {
       <s.Star src={star1}
       onMouseEnter={() => StarNum(1)}
       onMouseLeave={() => ResetStar()}
-      onClick={() => setStar(1)} />
+      onClick={() => {
+        setStar(1)
+        props.starNum(1)
+        }} />
       <s.Star src={star2}
       onMouseEnter={() => StarNum(2)}
       onMouseLeave={() => ResetStar()}
-      onClick={() => setStar(2)} />
+      onClick={() => {
+        setStar(2)
+        props.starNum(2)
+        }} />
       <s.Star src={star3}
       onMouseEnter={() => StarNum(3)}
       onMouseLeave={() => ResetStar()}
-      onClick={() => setStar(3)} />
+      onClick={() => {
+        setStar(3)
+        props.starNum(3)
+        }} />
       <s.Star src={star4}
       onMouseEnter={() => StarNum(4)}
       onMouseLeave={() => ResetStar()}
-      onClick={() => setStar(4)} />
+      onClick={() => {
+        setStar(4)
+        props.starNum(4)
+        }} />
       <s.Star src={star5}
       onMouseEnter={() => StarNum(5)}
       onMouseLeave={() => ResetStar()}
-      onClick={() => setStar(5)} />
+      onClick={() => {
+        setStar(5)
+        props.starNum(5)
+        }} />
     </>
   )
 }
@@ -79,6 +87,34 @@ function Points(props) {
 
 export default function ShowPcd(props) {
   const [pointSize, setPointSize] = useState(0)
+  const [accStar, setAccStar] = useState(3)
+  const [serStar, setSerStar] = useState(3)
+  useEffect(() => {
+    console.log(accStar);
+    console.log(serStar);
+  }, [accStar, serStar])
+
+  const ChangeAccStar = (e) => {
+    setAccStar(e)
+  }
+
+  const ChangeSerStar = (e) => {
+    setSerStar(e)
+  }
+
+  const SendReview = () => {
+    axios({
+      method: 'POST',
+      url: 'http://34.64.255.206:8000/images/review/',
+      // url: 'http://127.0.0.1:8000/images/review/', 
+
+      data: {
+        'image_path': `temp_pcd_${props.seed}.pcd`,
+        'acc_star': accStar,
+        'ser_star': serStar
+      }
+    })
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -104,16 +140,16 @@ export default function ShowPcd(props) {
             How close is the image to the actual room?
           </s.ReviewText>
           <s.ReviewStarDiv>
-            <Stars />
+            <Stars starNum={ChangeAccStar} />
           </s.ReviewStarDiv>
 
           <s.ReviewText>
             How was the service provided?
           </s.ReviewText>
           <s.ReviewStarDiv>
-            <Stars />
+            <Stars starNum={ChangeSerStar} />
           </s.ReviewStarDiv>
-          <s.Submit>
+          <s.Submit onClick={() => SendReview()}>
             <s.SubmitText>
               SUBMIT
             </s.SubmitText>
