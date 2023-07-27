@@ -6,8 +6,8 @@ import ShowPcd from './showPcd/ShowPcd'
 
 export default function Image() {
   const [scroll, setScroll] = useState('hidden')
-  const [state, setState] = useState('default')
-  // const [state, setState] = useState('pcd')
+  // const [state, setState] = useState('default')
+  const [state, setState] = useState('pcd')
   const [seed, setSeed] = useState(-1)
 
   useEffect(() => {

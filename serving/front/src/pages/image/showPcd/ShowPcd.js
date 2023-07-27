@@ -5,24 +5,21 @@ import * as s from "./ShowPcd_css";
 import { useState, useEffect } from "react"
 import axios from 'axios';
 
-import fill_star from "./fill_star.png"
-import empty_star from "./empty_star.png"
-
 function Stars(props) {
   const [star, setStar] = useState(3)
-  const [star1, setStar1] = useState(fill_star)
-  const [star2, setStar2] = useState(fill_star)
-  const [star3, setStar3] = useState(fill_star)
-  const [star4, setStar4] = useState(empty_star)
-  const [star5, setStar5] = useState(empty_star)
+  const [star1, setStar1] = useState(`${process.env.PUBLIC_URL}/fill_star.png`)
+  const [star2, setStar2] = useState(`${process.env.PUBLIC_URL}/fill_star.png`)
+  const [star3, setStar3] = useState(`${process.env.PUBLIC_URL}/fill_star.png`)
+  const [star4, setStar4] = useState(`${process.env.PUBLIC_URL}/empty_star.png`)
+  const [star5, setStar5] = useState(`${process.env.PUBLIC_URL}/empty_star.png`)
   const setStars = [setStar1, setStar2, setStar3, setStar4, setStar5]
 
   const StarNum = (num) => {
     for (let i=0; i<5; i++) {
       if (i+1 <= num) {
-        setStars[i](fill_star)
+        setStars[i](`${process.env.PUBLIC_URL}/fill_star.png`)
       } else {
-        setStars[i](empty_star)
+        setStars[i](`${process.env.PUBLIC_URL}/empty_star.png`)
       }
     }
   }
@@ -31,9 +28,9 @@ function Stars(props) {
     console.log('out');
     for (let i=0; i<5; i++) {
       if (i+1 <= star) {
-        setStars[i](fill_star)
+        setStars[i](`${process.env.PUBLIC_URL}/fill_star.png`)
       } else {
-        setStars[i](empty_star)
+        setStars[i](`${process.env.PUBLIC_URL}/empty_star.png`)
       }
     }
   }

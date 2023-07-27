@@ -1,15 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.a9b1fdc8.css",
-    "main.js": "/static/js/main.40fa7ff1.js",
+    "main.js": "/static/js/main.12ceb013.js",
     "static/js/27.ae125fe7.chunk.js": "/static/js/27.ae125fe7.chunk.js",
-    "static/media/empty_star.png": "/static/media/empty_star.8877f6287d03e9e593df.png",
     "static/media/WorkSans-Regular.ttf": "/static/media/WorkSans-Regular.ca211a55c3d9d8690c63.ttf",
-    "static/media/fill_star.png": "/static/media/fill_star.26d64e09affe716cd02f.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
     "static/css/main.a9b1fdc8.css",
-    "static/js/main.40fa7ff1.js"
+    "static/js/main.12ceb013.js"
   ]
 }
