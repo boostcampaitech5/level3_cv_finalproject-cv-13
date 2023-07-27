@@ -86,16 +86,29 @@ def send_pcd(reqeust):
 @api_view(['POST'])
 def review(request):
     file_path = os.path.join('logs', 'review.csv')
+
     if os.path.exists(file_path):
-        review = pd.read_csv(file_path)
-        review.loc[len(review)] = [request.data['image_path'], request.data['acc_star'], request.data['ser_star']]
+        review = pd.read_csv(file_path, index_col=0)
+        print(review)
+        request_data = pd.DataFrame(
+            data={
+                "Image Path" : [request['data']['image_path']],
+                "Accuracy Star" : [str(request['data']['acc_star'])],
+                "Service Star" : [str(request['data']['ser_star'])]
+            },
+            index = [len(review)]
+        )
+        print(request_data)
+        review = pd.concat([review, request_data], ignore_index=True, axis=0)
+        review.to_csv(file_path)
     else:
         review = pd.DataFrame(
             data={
-                "Image Path" : [request.data['image_path']],
-                "Accuracy Star" : [str(request.data['acc_star'])],
-                "Service Star" : [str(request.data['ser_star'])]
-            }
+                "Image Path" : [request['data']['image_path']],
+                "Accuracy Star" : [str(request['data']['acc_star'])],
+                "Service Star" : [str(request['data']['ser_star'])]
+            },
+            index = [0]
         )
 
         review.to_csv(file_path)
