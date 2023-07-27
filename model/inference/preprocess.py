@@ -29,7 +29,7 @@ def get_uni_sphere_xyz(H, W):
 
 def run_main(seed):
     
-    model_cfg = "./inference/config/s2d3d_depth/HOHO_depth_dct_efficienthc_TransEn1.yaml"
+    model_cfg = "./inference/config/s2d3d_depth/HOHO_depth_dct_efficienthc_TransEn1.yaml" # -> ./inference/config/s2d3d_depth/HOHO_depth_dct_efficienthc_TransEn1_hardnet.yaml
     model_path = "./inference/checkpoints/depth/depth.pth"
     
     path = f"./inference/data/temp_img_{seed}.png"
