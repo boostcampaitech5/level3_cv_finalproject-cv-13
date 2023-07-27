@@ -129,7 +129,7 @@ export const ReviewDiv = styled.div`
   right: 0;
   top: 0;
 
-  height: 4vh;
+  height: 4.5vh;
   width: 13vw;
 
   border: 0.5vh dotted ${colors.Nav};
