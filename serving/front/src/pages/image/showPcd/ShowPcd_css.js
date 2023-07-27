@@ -190,6 +190,13 @@ export const ReviewStarDiv = styled.div`
 export const Star = styled.img`
   height: 4vh;
   width: 4vh;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 
 export const Submit = styled.div`
