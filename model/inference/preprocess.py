@@ -28,6 +28,10 @@ def get_uni_sphere_xyz(H, W):
     return sphere_xyz
 
 def run_main(seed):
+    
+    model_cfg = "./inference/config/s2d3d_depth/HOHO_depth_dct_efficienthc_TransEn1.yaml"
+    model_path = "./inference/checkpoints/depth/depth.pth"
+    
     path = f"./inference/data/temp_img_{seed}.png"
     output_dir = "./inference/result"
     q_error = 0.7
@@ -82,8 +86,8 @@ def run_main(seed):
 
     # args = parser.parse_args()
     args = easydict.EasyDict({
-        'cfg': "./inference/config/s2d3d_depth/HOHO_depth_dct_efficienthc_TransEn1.yaml",
-        'pth': "./inference/checkpoints/depth/depth.pth"
+        'cfg': model_cfg,
+        'pth': model_path
         # 'opts': None
     })
 
