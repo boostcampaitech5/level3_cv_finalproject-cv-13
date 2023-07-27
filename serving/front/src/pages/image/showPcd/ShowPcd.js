@@ -3,6 +3,8 @@ import { OrbitControls } from '@react-three/drei'
 import { PCDLoader } from 'three-stdlib'
 import * as s from "./ShowPcd_css";
 import { useState, useEffect } from "react"
+import axios from 'axios';
+
 import fill_star from "./fill_star.png"
 import empty_star from "./empty_star.png"
 
@@ -15,6 +17,13 @@ function Stars(props) {
   const [star5, setStar5] = useState(empty_star)
   const setStars = [setStar1, setStar2, setStar3, setStar4, setStar5]
 
+  const SendReview = () => {
+    axios({
+      method: 'POST',
+      url: 'http://34.64.255.206:8000/images/review/',
+      data: {'img_'}
+    })
+  }
   const StarNum = (num) => {
     for (let i=0; i<5; i++) {
       if (i+1 <= num) {
