@@ -8,6 +8,7 @@ https://drive.google.com/file/d/1T-T8HMRLuEol7k7DLsyzBx2YI5xf_32W/view?usp=shari
 
 
 ## Directory
+```bash
 └─level3_cv_finalproject-cv-13
     ├─model
     │  ├─ai_server
@@ -60,3 +61,4 @@ https://drive.google.com/file/d/1T-T8HMRLuEol7k7DLsyzBx2YI5xf_32W/view?usp=shari
     │          │  └─main
     │          └─ui
     └─utility
+```
