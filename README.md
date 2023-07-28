@@ -82,3 +82,9 @@ https://drive.google.com/file/d/1T-T8HMRLuEol7k7DLsyzBx2YI5xf_32W/view?usp=shari
 ## Details
 * [발표 및 시연 영상](https://www.youtube.com/watch?v=XD1V6d-P9dM)
 * [소개 노션 페이지](https://www.notion.so/boostcampait/CV-13-PocketHome-b95d90c88b95444c96a10b8ac3f8edc0)
+
+## Member
+|[황준하](https://github.com/jh58power)|[김대희](https://github.com/eogml88)|[성지훈](https://github.com/JunOnJuly)|[김주성](https://github.com/kjs2109)|[김령태](https://github.com/RyeongTaeKim)|
+| --- | --- | --- | --- |  --- |
+|![image](https://github.com/boostcampaitech5/level3_cv_finalproject-cv-13/assets/95335531/de19e23f-c7d0-41ec-b1bb-9d69a3abece6)|![image](https://github.com/boostcampaitech5/level3_cv_finalproject-cv-13/assets/95335531/8c2e2748-9edc-46d5-9cf6-6ad1c3666dda)|![image](https://github.com/boostcampaitech5/level3_cv_finalproject-cv-13/assets/95335531/13f41093-d7d8-45c9-9510-aa44776cacd8)|![image](https://github.com/boostcampaitech5/level3_cv_finalproject-cv-13/assets/95335531/2491a32e-ddd9-4b43-a2a2-229e71b1e653)|![image](https://github.com/boostcampaitech5/level3_cv_finalproject-cv-13/assets/95335531/bf1fedef-1db6-470f-ba3d-7d10d64badfd)|
+
