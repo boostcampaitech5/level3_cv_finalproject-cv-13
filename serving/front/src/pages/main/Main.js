@@ -14,12 +14,10 @@ function Main() {
   const homeState = (state) => {
     setState(state)
   }
-  console.log(state)
-  console.log(state == "three");
 
   return (
     <s.MainBackground>
-      <Nav propFunc={homeState}/>
+      <Nav propFunc={homeState} state={state} />
       {
         {
           home: <Home />,

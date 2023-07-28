@@ -1,31 +1,75 @@
 import React, {useEffect, useState} from 'react'
 import * as s from "./sendImage_css";
 import axios from 'axios';
+import ShowPcd from '../showPcd/ShowPcd'
 
 export default function SendImage(props) {
   const [file, setFile] = useState('')
   const [image, setImage] = useState('')
   const [select, setSelect] = useState('flex')
   const [send, setSend] = useState('none')
+  // const [depth, setDepth] = useState(false)
+  // const [pcd, setPcd] = useState(false)
+  // const [seed, setSeed] = useState(-1)
   // const [margin, setMargin] = useState(0)
 
+  const ImageProcess = async (e) => {
+    props.controlState('loading')
+    e.preventDefault();
+    const send = await sendImage(e)
+    // const loadD = await loadDepth()
+    // const loadP = await loadPcd()
+  }
   const sendImage = async (e) => {
     e.preventDefault();
     console.log(e);
     console.log(e.target[0].files[0])
 
-    axios({
+    
+    const send = await axios({
       method: 'POST',
-      url: 'http://34.64.255.206:8000/images/process/' ,
-      // url: 'http://127.0.0.1:8000/images/process/', 
+      // url: 'http://34.64.255.206:8000/images/process/' ,
+      url: 'http://127.0.0.1:8000/images/process/', 
       headers: {
         "Content-Type": "multipart/form-data",
       },
       data: {'img': e.target[0].files[0]}
     })
-    .then(res => {console.log(res)})
-    .catch(err => {console.log(err)})
+    .then(res => {
+      console.log(res)
+      setSeed(res.data.seed)
+    })
+    .catch(err => {
+      console.log(err)
+      props.controlState('pcd')
+    })
   }
+
+  // const loadDepth = async () => {
+  //   const loadD = await axios({
+  //     method: 'GET',
+  //     // url: 'http://34.64.255.206:8000/images/send/depth/',
+  //     url: 'http://127.0.0.1:8000/images/send/depth/', 
+  //   })
+  //   .then(res => {
+  //     console.log(res)
+  //     setDepth(true)
+  //   })
+  //   .catch(err => {console.log(err)})
+  // }
+
+  // const loadPcd = async () => {
+  //   const loadP = await axios({
+  //     method: 'GET',
+  //     // url: 'http://34.64.255.206:8000/images/send/pcd/',
+  //     url: 'http://127.0.0.1:8000/images/send/pcd/', 
+  //   })
+  //   .then(res => {
+  //     console.log(res)
+  //     setPcd(true)
+  //   })
+  //   .catch(err => {console.log(err)})
+  // }
 
   const setImageFile = (e) => {
     const imageFile = e.target.files[0]
@@ -80,23 +124,25 @@ export default function SendImage(props) {
       </s.imageCheckDiv>
     }
 
-      {/* <s.imageSelectForm onSubmit={(e) => sendImage(e)} margin={margin}> */}
-      <s.imageSelectForm>
+      <s.imageSelectForm onSubmit={(e) => ImageProcess(e)}>
 
         <s.imageSelectLabel for="sendBtn" select={select}>
           HERE
         </s.imageSelectLabel>
-
         <s.imageSelectBtn onChange={(e) => setImageFile(e)} id='sendBtn' type="file" multiple="multiple" />
 
         <s.imageSendLabel for="submitBtn" send={send}>
-          HERE
+          SHOW
         </s.imageSendLabel>
-
         <s.imageSubmitBtn id='submitBtn' type="submit" />
         
       </s.imageSelectForm>
 
+      {/* { pcd === false
+        ? null
+        : <ShowPcd seed={seed} />
+      } */}
     </s.sendImageBackground>
+
   )
 }

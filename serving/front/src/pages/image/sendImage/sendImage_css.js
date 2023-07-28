@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../design/Design'
+import { colors } from '../../../design/design'
 
 export const sendImageBackground = styled.div`
   position: absolute;
@@ -12,8 +12,6 @@ export const sendImageBackground = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  background-color: ${colors.WhiteBlue}
 `
 
 export const imageSendTextDiv = styled.div`
@@ -44,8 +42,7 @@ export const imageSelectForm = styled.form`
   justify-content: center;
   align-items: center;
 
-  background-color: ${colors.Nav};
-
+  margin-right: min(0.5vw, 0.5vh);
   /* margin-right: ${(props) => props.margin}; */
 `
 
@@ -65,6 +62,14 @@ export const imageSelectLabel = styled.label`
   font-family: 'WorkSans';
   font-size: min(20vh, 10vw);
   color: white;
+  background-color: ${colors.Nav};
+  transition: all 0.5s;
+
+  &:hover{
+    background-color: ${colors.Background};
+    border: min(0.5vh, 0.5vw) solid ${colors.Nav};
+    color: ${colors.Nav};
+  }
 `
 
 export const imageSendLabel = styled.label`
@@ -79,6 +84,15 @@ export const imageSendLabel = styled.label`
   font-family: 'WorkSans';
   font-size: min(20vh, 10vw);
   color: white;
+
+  background-color: ${colors.Nav};
+  transition: all 0.5s;
+
+  &:hover{
+    background-color: ${colors.Background};
+    border: min(0.5vh, 0.5vw) solid ${colors.Nav};
+    color: ${colors.Nav};
+  }
 `
 
 export const imageCheckDiv = styled.div`
