@@ -24,19 +24,6 @@ export default function Nav(props) {
       <s.NavTextDiv>
         <s.NavText
         onClick={() => {
-          props.propFunc('about')
-          setHomeColor(false)
-          setAboutColor(true)
-          setImageColor(false)
-        }}
-        color={aboutColor}>
-          ABOUT
-        </s.NavText>
-      </s.NavTextDiv>
-
-      <s.NavTextDiv>
-        <s.NavText
-        onClick={() => {
           props.propFunc('image')
           setHomeColor(false)
           setAboutColor(false)
@@ -46,6 +33,9 @@ export default function Nav(props) {
           IMAGE
         </s.NavText>
       </s.NavTextDiv>
+      <s.Title>
+        PocketHome
+      </s.Title>
     </s.NavBackground>
   )
 }

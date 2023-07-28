@@ -3,17 +3,196 @@ import { colors } from '../../design/design'
 
 export const HomeBackground = styled.div`
   position: absolute;
-  left: 0;
+  left: 10vw;
   top: 20vh;
 
-  height: 80vh;
-  width: 100vw;
+  height: 70vh;
+  width: 80vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+
+  background-color: ${colors.Background};
+  /* background-color: black; */
+`
+export const HomePurposeDiv = styled.div`
+  position: relative;
+
+  width: 80vw;
 
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: center;
+  align-items: start;
+  word-break: break-all;
+  /* border: solid 0.5vh ${colors.Nav}; */
+`
 
-  background-color: ${colors.Background};
-  /* background-color: black; */
+export const HomeProcessDiv = styled.div`
+  position: relative;
+
+  height: 70vh;
+  width: 80vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  word-break: break-all;
+  /* border: solid 0.5vh ${colors.Nav}; */
+`
+
+export const HomeSequenceDiv = styled.div`
+  height: 70vh;
+  width: 43vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  word-break: break-all;
+  /* border: solid 0.5vh ${colors.Nav}; */
+`
+
+export const HomeDivTitleText = styled.p`
+  color: ${colors.Else};
+
+  margin: 4vh 0 0 0;
+  font-family: 'WorkSans';
+  cursor: default;
+  font-size: min(8vh, 3.5vw);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:hover {
+    color: ${colors.BoldElse};
+    transition: all 0.5s;
+  }
+`
+
+export const HomeDivSubTitleText = styled.p`
+  color: ${colors.Else};
+
+  margin: 3vh 0 0 0;
+  font-family: 'WorkSans';
+  cursor: default;
+  font-size: min(6vh, 3vw);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:hover {
+    color: ${colors.BoldElse};
+    font-size: min(8vh, 4vw);
+    transition: all 0.5s;
+  }
+`
+
+export const HomeDivContextText = styled.p`
+  color: ${colors.Else};
+
+  margin: 2vh 0 0 0;
+  font-family: 'WorkSans';
+  cursor: default;
+  font-size: min(3vh, 1.5vw);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  overflow-wrap: break-word;
+
+  &:hover {
+    color: ${colors.BoldElse};
+    transition: all 0.5s;
+  }
+`
+
+export const HomeDivSequenceText = styled.p`
+  color: ${colors.Else};
+
+  margin: 3vh 0 0 0;
+  font-family: 'WorkSans';
+  cursor: default;
+  font-size: min(3vh, 1.5vw);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  overflow-wrap: break-word;
+
+  &:hover {
+    color: ${colors.BoldElse};
+    transition: all 0.5s;
+  }
+`
+
+export const SwitchStateBtn = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 10vw;
+  height: 5vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+
+  background-color: ${colors.Else};
+  color: ${colors.Background};
+  font-weight: bold;
+  border: 0.5vh solid ${colors.Background};
+
+  &:hover {
+    border: 0.5vh solid ${colors.Else};
+    background-color: ${colors.Background};
+    color: ${colors.Else};
+  }
+`
+
+export const SwitchStateBtnText = styled.p`
+  margin: 0;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+`
+
+export const MainPcdDiv = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 35vh;
+  width: 80vw;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const MainPcdImageDiv = styled.div`
+  height: 35vh;
+  width: 19vw;
+  border: 0.5vh solid ${colors.Nav};
 `

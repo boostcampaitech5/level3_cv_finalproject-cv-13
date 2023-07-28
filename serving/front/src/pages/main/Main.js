@@ -3,7 +3,6 @@ import * as s from "./Main_css";
 
 //component
 import Home from "../home/Home"
-import About from "../about/About"
 import Image from "../image/Image"
 
 //ui
@@ -21,7 +20,6 @@ function Main() {
       {
         {
           home: <Home />,
-          about: <About />,
           image: <Image />
         }[state]
       }

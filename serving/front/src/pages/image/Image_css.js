@@ -4,7 +4,6 @@ import { colors } from '../../design/design'
 export const ImageBackground = styled.div`
   position: absolute;
   top: 20vh;
-  left: 10vw;
 
   height: 70vh;
   width: 80vw;
@@ -14,21 +13,23 @@ export const ImageBackground = styled.div`
   justify-content: start;
   align-items: center;
 
-  overflow-X: ${props => props.scroll};
-  overflow-Y: hidden;
+  background-color: ${colors.Background};
 
+  overflow-X: ${props => props.scroll};
+  overflow-y: hidden;
   &::-webkit-scrollbar {
     height: 1vh;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: ${colors.Else};
-    border-radius: 10px;
+    border-radius: 0.5vh;
   }
 
   &::-webkit-scrollbar-track {
     background-color: ${colors.Nav};
-    border-radius: 10px;
+    border-radius: 0.5vh;
 
   }
 `
+
