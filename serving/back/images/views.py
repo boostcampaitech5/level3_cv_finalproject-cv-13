@@ -6,6 +6,9 @@ from PIL import Image
 import base64
 from django.http import FileResponse
 import random
+import os
+import pandas as pd
+import numpy as np
 
 @api_view(['POST'])
 def process(request):
@@ -56,16 +59,18 @@ def result(request):
     """
     seed = request.data['seed']
 
-    temp_depth_path = f'img_dir/temp_depth_{seed}.png'
-    temp_pcd_path = f'img_dir/temp_pcd_{seed}.pcd'
+    print(request)
+    
+    temp_depth_name = f'temp_depth_{seed}.png'
+    temp_pcd_name = f'temp_pcd_{seed}.pcd'
 
-    with open(temp_depth_path, 'wb') as f:
+    with open(os.path.join('img_dir', temp_depth_name), 'wb') as f:
         f.write(base64.b64decode(request.data['depth']))
-        print(f'create file at {temp_depth_path}')
+        print(f'create file {temp_depth_name}')
 
-    with open(temp_pcd_path, 'wb') as f:
+    with open(os.path.join('img_dir', temp_pcd_name), 'wb') as f:
         f.write(base64.b64decode(request.data['pcd']))
-        print(f'create file at {temp_pcd_path}')
+        print(f'create file at {temp_pcd_name}')
 
     return HttpResponse(status=200)
 
@@ -76,4 +81,36 @@ def send_depth(request):
 
 def send_pcd(reqeust):
     # response = FileResponse(open("temp_pcd.pcd", "rb"))
+    return HttpResponse(status=200)
+
+@api_view(['POST'])
+def review(request):
+    file_path = os.path.join('logs', 'review.csv')
+
+    if os.path.exists(file_path):
+        review = pd.read_csv(file_path, index_col=0)
+        print(review)
+        request_data = pd.DataFrame(
+            data={
+                "Image Path" : [request.data['image_path']],
+                "Accuracy Star" : [str(request.data['acc_star'])],
+                "Service Star" : [str(request.data['ser_star'])]
+            },
+            index = [len(review)]
+        )
+        print(request_data)
+        review = pd.concat([review, request_data], ignore_index=True, axis=0)
+        review.to_csv(file_path)
+    else:
+        review = pd.DataFrame(
+            data={
+                "Image Path" : [request.data['image_path']],
+                "Accuracy Star" : [str(request.data['acc_star'])],
+                "Service Star" : [str(request.data['ser_star'])]
+            },
+            index = [0]
+        )
+
+        review.to_csv(file_path)
+        
     return HttpResponse(status=200)
