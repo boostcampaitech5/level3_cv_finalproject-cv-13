@@ -81,5 +81,5 @@ https://drive.google.com/file/d/1T-T8HMRLuEol7k7DLsyzBx2YI5xf_32W/view?usp=shari
 ```
 
 ## Details
-[발표 및 시연 영상](https://www.youtube.com/watch?v=XD1V6d-P9dM)
+[발표 및 시연 영상](https://www.youtube.com/watch?v=XD1V6d-P9dM) <br></br>
 [소개 노션 페이지](https://www.notion.so/boostcampait/CV-13-PocketHome-b95d90c88b95444c96a10b8ac3f8edc0)
