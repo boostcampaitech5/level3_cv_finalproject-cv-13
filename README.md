@@ -24,6 +24,7 @@ https://drive.google.com/file/d/1T-T8HMRLuEol7k7DLsyzBx2YI5xf_32W/view?usp=shari
 ## 🏚project architecture
 
 > CI/CD 는 Jenkins 로 관리하였고 github 에 분리해둔 front, back, ai 브랜치가 각각 push 될때마다 해당 server 를 자동으로 배포하게 하는 방식으로 진행하였습니다.
+![Untitled](./readme_img/image3.png)
 
 ### Data Flow
 
