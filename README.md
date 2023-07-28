@@ -1,7 +1,6 @@
 # level3_cv_finalproject-cv-13
 
-https://www.youtube.com/watch?v=XD1V6d-P9dM
-
+[![Video Label](http://img.youtube.com/vi/XD1V6d-P9dM/0.jpg)]
 
 > “PocketHome”은 임의의 2차원 실내 panorama image로부터 3차원의 점들로 이루어진 가상 환경을 보여주는 service입니다. 기존의 2D to 3D reconstruction solution들이 산업용이나 고가의 장비(LiDAR 등)를 필요로 한다는 데에 착안 하여 일반인들이 개인의 공간을 휴대전화 단말기 등으로 panorama 사진을 찍어서 쉽게 3차원으로 재구성 하여 어디서든 볼 수 있게 끔 하고자 했습니다.
 
