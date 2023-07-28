@@ -113,32 +113,36 @@ export default function SendImage(props) {
           </s.imageSelectLabelText>
         </s.imageSelectLabel>
         <s.imageSelectBtn accept=".gif, .jpg, .png" onChange={(e) => setImageFile(e)} id='sendBtn' type="file" multiple="multiple" ref={fileInput} />
+  
+          <s.selectOtherDiv send={send} onClick={e => selectOtherImage(e)}>
+            <s.selectOtherDivText>
+              SELECT
+            </s.selectOtherDivText>
+            <s.selectOtherDivText>
+              OTHER
+            </s.selectOtherDivText>
+            <s.selectOtherDivText>
+              IMAGE
+            </s.selectOtherDivText>
+          </s.selectOtherDiv>
 
-        <s.imageSendLabel for="submitBtn" send={send}>
-          <s.imageSendLabelText>
-            MAKE
-          </s.imageSendLabelText>
-          <s.imageSendLabelText>
-            POINT
-          </s.imageSendLabelText>
-          <s.imageSendLabelText>
-            CLOUD
-          </s.imageSendLabelText>
-        </s.imageSendLabel>
-        <s.imageSubmitBtn id='submitBtn' type="submit" />
+          <s.imageSendLabel for="submitBtn" send={send}>
+
+            <s.imageSendLabelText>
+              MAKE
+            </s.imageSendLabelText>
+            <s.imageSendLabelText>
+              POINT
+            </s.imageSendLabelText>
+            <s.imageSendLabelText>
+              CLOUD
+            </s.imageSendLabelText>
+            
+          </s.imageSendLabel>
+
+          <s.imageSubmitBtn id='submitBtn' type="submit" />
+        </s.imageSelectForm>
         
-        <s.selectOtherDiv send={send} onClick={e => selectOtherImage(e)}>
-          <s.selectOtherDivText>
-            SELECT
-          </s.selectOtherDivText>
-          <s.selectOtherDivText>
-            OTHER
-          </s.selectOtherDivText>
-          <s.selectOtherDivText>
-            IMAGE
-          </s.selectOtherDivText>
-        </s.selectOtherDiv>
-      </s.imageSelectForm>
 
       {/* { pcd === false
         ? null

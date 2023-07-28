@@ -87,7 +87,7 @@ export const imageSelectLabel = styled.label`
 
 export const imageSendLabel = styled.label`
   position: absolute;
-  top: 5vh;
+  bottom: 5vh;
 
   width: 40vw;
   height: 50vh;
@@ -159,7 +159,7 @@ export const imageSendLabelText = styled.p`
 
 export const selectOtherDiv = styled.div`
   position: absolute;
-  bottom: 5vh;
+  top: 5vh;
 
   width: 24.5vw;
   height: 7.5vh;
@@ -180,6 +180,7 @@ export const selectOtherDiv = styled.div`
 
   background-color: ${colors.Background};
   transition: all 0.8s;
+  z-index: 99;
 
   border: min(0.5vh, 0.5vw) solid ${colors.Nav};
   &:hover{
@@ -188,14 +189,13 @@ export const selectOtherDiv = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    font-size: min(15vh, 7.5vw);
+    font-size: min(8vh, 4vw);
 
     width: 39.5vw;
     height: 59.5vh;
     background-color: ${colors.Background};
     border: min(0.5vh, 0.5vw) solid ${colors.Nav};
     color: ${colors.Nav};
-    z-index: 99;
   }
 `
 
