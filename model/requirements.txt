@@ -93,4 +93,4 @@ wcwidth==0.2.6
 Werkzeug==3.0.3
 widgetsnbextension==4.0.8
 yacs==0.1.8
-zipp==3.16.2
+zipp==3.19.1
