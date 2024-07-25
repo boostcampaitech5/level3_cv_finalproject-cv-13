@@ -6,7 +6,7 @@ Django==4.2.14
 django-cors-headers==4.1.0
 djangorestframework==3.14.0
 gunicorn==22.0.0
-idna==3.4
+idna==3.7
 nodeenv==1.8.0
 Pillow==10.0.0
 pytz==2023.3
